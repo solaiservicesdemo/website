@@ -178,7 +178,7 @@ export default function Index() {
                   href="mailto:info@solai.ai" 
                   className="hover:text-brand-blue transition-colors duration-300 font-medium"
                 >
-                  info@solai.ai
+                  jtgeldart@solai-systems.com
                 </a>
               </div>
             </div>
