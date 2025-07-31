@@ -175,7 +175,7 @@ export default function Index() {
               <div className="flex items-center justify-center gap-3 text-lg text-gray-700">
                 <Mail className="w-6 h-6 text-brand-blue" />
                 <a 
-                  href="mailto:info@solai.ai" 
+                  href="mailto:jtgeldart@solai-systems.com" 
                   className="hover:text-brand-blue transition-colors duration-300 font-medium"
                 >
                   jtgeldart@solai-systems.com
