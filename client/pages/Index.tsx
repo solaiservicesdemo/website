@@ -211,6 +211,101 @@ export default function Index() {
           </div>
         </div>
       </footer>
+
+      {/* Floating FAQ Button */}
+      <Dialog>
+        <DialogTrigger asChild>
+          <Button
+            className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-gradient-to-r from-brand-blue to-brand-purple hover:from-brand-purple hover:to-brand-blue text-white shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-110 group"
+            size="icon"
+          >
+            <HelpCircle className="w-6 h-6 group-hover:rotate-12 transition-transform duration-300" />
+            <span className="sr-only">Open FAQ</span>
+          </Button>
+        </DialogTrigger>
+        <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-bold bg-gradient-to-r from-brand-blue to-brand-purple bg-clip-text text-transparent">
+              Frequently Asked Questions
+            </DialogTitle>
+          </DialogHeader>
+          <div className="mt-4">
+            <Accordion type="single" collapsible className="w-full">
+              <AccordionItem value="item-1">
+                <AccordionTrigger className="text-left">
+                  What is SolAI and how does it work?
+                </AccordionTrigger>
+                <AccordionContent>
+                  SolAI is an AI-powered workflow automation platform designed to help businesses automate routine tasks like email management, scheduling, and document handling. Our intelligent system learns your business processes and provides seamless automation across your existing tools and workflows.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-2">
+                <AccordionTrigger className="text-left">
+                  When will SolAI be available?
+                </AccordionTrigger>
+                <AccordionContent>
+                  SolAI is currently in development and we're working hard to bring you the best possible experience. Sign up for our newsletter to be the first to know when we launch and to receive exclusive early access opportunities.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-3">
+                <AccordionTrigger className="text-left">
+                  What types of businesses can benefit from SolAI?
+                </AccordionTrigger>
+                <AccordionContent>
+                  SolAI is designed for small to medium-sized businesses across all industries. Whether you're in consulting, retail, healthcare, finance, or any other sector, if you deal with repetitive tasks like email responses, appointment scheduling, or document creation, SolAI can help streamline your operations.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-4">
+                <AccordionTrigger className="text-left">
+                  How secure is my data with SolAI?
+                </AccordionTrigger>
+                <AccordionContent>
+                  Security is our top priority. SolAI will be built with enterprise-grade security measures including end-to-end encryption, secure data handling protocols, and compliance with industry standards. Your business data will be protected with the highest level of security available.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-5">
+                <AccordionTrigger className="text-left">
+                  Will SolAI integrate with my existing tools?
+                </AccordionTrigger>
+                <AccordionContent>
+                  Yes! SolAI is being designed to integrate seamlessly with popular business tools including email platforms (Gmail, Outlook), calendar applications, CRM systems, document management tools, and more. Our goal is to work with your existing workflow, not replace it.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-6">
+                <AccordionTrigger className="text-left">
+                  How much will SolAI cost?
+                </AccordionTrigger>
+                <AccordionContent>
+                  We're committed to making SolAI affordable for businesses of all sizes. Pricing details will be announced closer to launch, but we're designing flexible plans to fit different business needs and budgets. Early subscribers will receive special pricing benefits.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-7">
+                <AccordionTrigger className="text-left">
+                  Do I need technical expertise to use SolAI?
+                </AccordionTrigger>
+                <AccordionContent>
+                  Not at all! SolAI is designed to be user-friendly and intuitive. Our AI-powered system will guide you through setup and configuration, and our intelligent assistant will help you create automations without any coding or technical knowledge required.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-8">
+                <AccordionTrigger className="text-left">
+                  How can I stay updated on SolAI's progress?
+                </AccordionTrigger>
+                <AccordionContent>
+                  The best way to stay updated is to subscribe to our newsletter using the email form above. You can also reach out to us directly at jtgeldart@solai-systems.com for specific questions or partnership inquiries.
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
