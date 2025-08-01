@@ -2,7 +2,17 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle, Mail, Calendar, FileText, Bot, ArrowRight, Sparkles } from "lucide-react";
+import {
+  CheckCircle,
+  Mail,
+  Calendar,
+  FileText,
+  Bot,
+  ArrowRight,
+  Sparkles,
+  HelpCircle,
+} from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Index() {
   const [email, setEmail] = useState("");
@@ -22,13 +32,13 @@ export default function Index() {
       <section className="relative overflow-hidden bg-gradient-to-br from-white via-brand-light to-white min-h-screen flex items-center">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(120,119,198,0.3),transparent_50%)] pointer-events-none" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(34,197,94,0.2),transparent_50%)] pointer-events-none" />
-        
+
         <div className="container mx-auto px-6 py-20 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             {/* Coming Soon Badge */}
             <div className="mb-8 animate-fade-in">
-              <Badge 
-                variant="secondary" 
+              <Badge
+                variant="secondary"
                 className="bg-gradient-to-r from-brand-blue to-brand-purple text-white border-none px-6 py-2 text-sm font-medium shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
               >
                 <Sparkles className="w-4 h-4 mr-2" />
@@ -50,12 +60,19 @@ export default function Index() {
 
             {/* Description */}
             <p className="text-lg md:text-xl text-gray-500 mb-12 max-w-2xl mx-auto leading-relaxed animate-fade-in-delay">
-              SolAI is an upcoming AI-driven platform designed to help businesses automate routine tasks like email, scheduling, and document handling. Our goal is to simplify business operations, save time, and reduce costs by providing an intelligent assistant that works seamlessly across your tools.
+              SolAI is an upcoming AI-driven platform designed to help
+              businesses automate routine tasks like email, scheduling, and
+              document handling. Our goal is to simplify business operations,
+              save time, and reduce costs by providing an intelligent assistant
+              that works seamlessly across your tools.
             </p>
 
             {/* CTA Section */}
             <div className="animate-fade-in-delay-2">
-              <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto mb-8">
+              <form
+                onSubmit={handleSubmit}
+                className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto mb-8"
+              >
                 <Input
                   type="email"
                   placeholder="Enter your email"
@@ -64,7 +81,7 @@ export default function Index() {
                   className="flex-1 h-12 text-lg border-2 border-gray-200 focus:border-brand-blue transition-colors"
                   required
                 />
-                <Button 
+                <Button
                   type="submit"
                   className="h-12 px-8 bg-gradient-to-r from-brand-blue to-brand-purple hover:from-brand-purple hover:to-brand-blue text-white font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg"
                   disabled={isSubmitted}
@@ -99,7 +116,8 @@ export default function Index() {
                 Powerful Features Coming Soon
               </h2>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Everything you need to automate your business workflows and boost productivity
+                Everything you need to automate your business workflows and
+                boost productivity
               </p>
             </div>
 
@@ -113,7 +131,8 @@ export default function Index() {
                   Automate Email & Calendar
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Automatically manage your email responses and schedule meetings with AI-powered intelligence.
+                  Automatically manage your email responses and schedule
+                  meetings with AI-powered intelligence.
                 </p>
               </div>
 
@@ -126,7 +145,8 @@ export default function Index() {
                   AI-Powered Chat Assistant
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Get instant help with business tasks through our intelligent chat assistant that understands your workflow.
+                  Get instant help with business tasks through our intelligent
+                  chat assistant that understands your workflow.
                 </p>
               </div>
 
@@ -139,7 +159,8 @@ export default function Index() {
                   Document Generation
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Create, manage, and organize business documents automatically with AI-powered templates and workflows.
+                  Create, manage, and organize business documents automatically
+                  with AI-powered templates and workflows.
                 </p>
               </div>
 
@@ -152,10 +173,33 @@ export default function Index() {
                   Simple & Secure
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Built for small teams with enterprise-grade security. Easy to set up, simple to use, powerful results.
+                  Built for small teams with enterprise-grade security. Easy to
+                  set up, simple to use, powerful results.
                 </p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-brand-light">
+        <div className="container mx-auto px-6">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-lg text-gray-600 mb-8">
+              Get answers to common questions about SolAI
+            </p>
+
+            <Link to="/faq">
+              <Button className="bg-gradient-to-r from-brand-blue to-brand-purple hover:from-brand-purple hover:to-brand-blue text-white font-semibold px-8 py-3 transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                <HelpCircle className="w-5 h-5 mr-2" />
+                View FAQ
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -170,12 +214,12 @@ export default function Index() {
             <p className="text-lg text-gray-600 mb-8">
               Have questions about SolAI? We'd love to hear from you.
             </p>
-            
+
             <div className="bg-gradient-to-br from-gray-50 to-brand-light rounded-2xl p-8 inline-block">
               <div className="flex items-center justify-center gap-3 text-lg text-gray-700">
                 <Mail className="w-6 h-6 text-brand-blue" />
-                <a 
-                  href="mailto:jtgeldart@solai-systems.com" 
+                <a
+                  href="mailto:jtgeldart@solai-systems.com"
                   className="hover:text-brand-blue transition-colors duration-300 font-medium"
                 >
                   jtgeldart@solai-systems.com
@@ -199,7 +243,7 @@ export default function Index() {
                   AI-powered workflow automation for smarter businesses
                 </p>
               </div>
-              
+
               <div className="text-center md:text-right">
                 <p className="text-gray-400">
                   © 2025 SolAI. All rights reserved.
