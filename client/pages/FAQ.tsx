@@ -33,7 +33,7 @@ export default function FAQ() {
             <Accordion type="single" collapsible className="w-full space-y-4">
               <AccordionItem value="item-1" className="border border-gray-200 rounded-lg px-6">
                 <AccordionTrigger className="text-left hover:no-underline py-6">
-                  <span className="text-lg font-semibold text-gray-900">
+                  <span className="text-xl font-semibold text-gray-900">
                     1. What exactly is this AI assistant, and how does it help my real estate business?
                   </span>
                 </AccordionTrigger>
@@ -44,7 +44,7 @@ export default function FAQ() {
 
               <AccordionItem value="item-2" className="border border-gray-200 rounded-lg px-6">
                 <AccordionTrigger className="text-left hover:no-underline py-6">
-                  <span className="text-lg font-semibold text-gray-900">
+                  <span className="text-xl font-semibold text-gray-900">
                     2. Do I need to be tech-savvy to use this AI assistant?
                   </span>
                 </AccordionTrigger>
@@ -55,7 +55,7 @@ export default function FAQ() {
 
               <AccordionItem value="item-3" className="border border-gray-200 rounded-lg px-6">
                 <AccordionTrigger className="text-left hover:no-underline py-6">
-                  <span className="text-lg font-semibold text-gray-900">
+                  <span className="text-xl font-semibold text-gray-900">
                     3. How is this different from tools like my CRM or scheduling apps?
                   </span>
                 </AccordionTrigger>
@@ -66,7 +66,7 @@ export default function FAQ() {
 
               <AccordionItem value="item-4" className="border border-gray-200 rounded-lg px-6">
                 <AccordionTrigger className="text-left hover:no-underline py-6">
-                  <span className="text-lg font-semibold text-gray-900">
+                  <span className="text-xl font-semibold text-gray-900">
                     4. Can the AI assistant really understand my clients and my business?
                   </span>
                 </AccordionTrigger>
@@ -77,7 +77,7 @@ export default function FAQ() {
 
               <AccordionItem value="item-5" className="border border-gray-200 rounded-lg px-6">
                 <AccordionTrigger className="text-left hover:no-underline py-6">
-                  <span className="text-lg font-semibold text-gray-900">
+                  <span className="text-xl font-semibold text-gray-900">
                     5. What kind of tasks can the AI assistant handle for me?
                   </span>
                 </AccordionTrigger>
@@ -97,7 +97,7 @@ export default function FAQ() {
 
               <AccordionItem value="item-6" className="border border-gray-200 rounded-lg px-6">
                 <AccordionTrigger className="text-left hover:no-underline py-6">
-                  <span className="text-lg font-semibold text-gray-900">
+                  <span className="text-xl font-semibold text-gray-900">
                     6. Can it communicate with clients in a way that feels like me?
                   </span>
                 </AccordionTrigger>
@@ -108,7 +108,7 @@ export default function FAQ() {
 
               <AccordionItem value="item-7" className="border border-gray-200 rounded-lg px-6">
                 <AccordionTrigger className="text-left hover:no-underline py-6">
-                  <span className="text-lg font-semibold text-gray-900">
+                  <span className="text-xl font-semibold text-gray-900">
                     7. How does it handle sensitive client information?
                   </span>
                 </AccordionTrigger>
@@ -119,7 +119,7 @@ export default function FAQ() {
 
               <AccordionItem value="item-8" className="border border-gray-200 rounded-lg px-6">
                 <AccordionTrigger className="text-left hover:no-underline py-6">
-                  <span className="text-lg font-semibold text-gray-900">
+                  <span className="text-xl font-semibold text-gray-900">
                     8. What happens if the AI doesn't understand something or makes a mistake?
                   </span>
                 </AccordionTrigger>
@@ -130,7 +130,7 @@ export default function FAQ() {
 
               <AccordionItem value="item-9" className="border border-gray-200 rounded-lg px-6">
                 <AccordionTrigger className="text-left hover:no-underline py-6">
-                  <span className="text-lg font-semibold text-gray-900">
+                  <span className="text-xl font-semibold text-gray-900">
                     9. How will this AI assistant keep up with new technology or changes in real estate?
                   </span>
                 </AccordionTrigger>
@@ -141,7 +141,7 @@ export default function FAQ() {
 
               <AccordionItem value="item-10" className="border border-gray-200 rounded-lg px-6">
                 <AccordionTrigger className="text-left hover:no-underline py-6">
-                  <span className="text-lg font-semibold text-gray-900">
+                  <span className="text-xl font-semibold text-gray-900">
                     10. How much time will this save me every week?
                   </span>
                 </AccordionTrigger>
@@ -152,7 +152,7 @@ export default function FAQ() {
 
               <AccordionItem value="item-11" className="border border-gray-200 rounded-lg px-6">
                 <AccordionTrigger className="text-left hover:no-underline py-6">
-                  <span className="text-lg font-semibold text-gray-900">
+                  <span className="text-xl font-semibold text-gray-900">
                     11. Can it help me stand out in a competitive market like Coronado?
                   </span>
                 </AccordionTrigger>
@@ -163,7 +163,7 @@ export default function FAQ() {
 
               <AccordionItem value="item-12" className="border border-gray-200 rounded-lg px-6">
                 <AccordionTrigger className="text-left hover:no-underline py-6">
-                  <span className="text-lg font-semibold text-gray-900">
+                  <span className="text-xl font-semibold text-gray-900">
                     12. Will it integrate with tools I already use, like my CRM or email?
                   </span>
                 </AccordionTrigger>
@@ -174,7 +174,7 @@ export default function FAQ() {
 
               <AccordionItem value="item-13" className="border border-gray-200 rounded-lg px-6">
                 <AccordionTrigger className="text-left hover:no-underline py-6">
-                  <span className="text-lg font-semibold text-gray-900">
+                  <span className="text-xl font-semibold text-gray-900">
                     13. How do I interact with the assistant? Do I need a special app?
                   </span>
                 </AccordionTrigger>
@@ -185,7 +185,7 @@ export default function FAQ() {
 
               <AccordionItem value="item-14" className="border border-gray-200 rounded-lg px-6">
                 <AccordionTrigger className="text-left hover:no-underline py-6">
-                  <span className="text-lg font-semibold text-gray-900">
+                  <span className="text-xl font-semibold text-gray-900">
                     14. What if I don't have time to learn a new system?
                   </span>
                 </AccordionTrigger>
@@ -196,7 +196,7 @@ export default function FAQ() {
 
               <AccordionItem value="item-15" className="border border-gray-200 rounded-lg px-6">
                 <AccordionTrigger className="text-left hover:no-underline py-6">
-                  <span className="text-lg font-semibold text-gray-900">
+                  <span className="text-xl font-semibold text-gray-900">
                     15. Can it help with specific real estate tasks, like preparing a CMA or managing open houses?
                   </span>
                 </AccordionTrigger>
@@ -207,7 +207,7 @@ export default function FAQ() {
 
               <AccordionItem value="item-16" className="border border-gray-200 rounded-lg px-6">
                 <AccordionTrigger className="text-left hover:no-underline py-6">
-                  <span className="text-lg font-semibold text-gray-900">
+                  <span className="text-xl font-semibold text-gray-900">
                     16. Is this AI assistant reliable, or will it crash when I need it most?
                   </span>
                 </AccordionTrigger>
@@ -218,7 +218,7 @@ export default function FAQ() {
 
               <AccordionItem value="item-17" className="border border-gray-200 rounded-lg px-6">
                 <AccordionTrigger className="text-left hover:no-underline py-6">
-                  <span className="text-lg font-semibold text-gray-900">
+                  <span className="text-xl font-semibold text-gray-900">
                     17. How customizable is it for my specific business needs?
                   </span>
                 </AccordionTrigger>
@@ -229,7 +229,7 @@ export default function FAQ() {
 
               <AccordionItem value="item-18" className="border border-gray-200 rounded-lg px-6">
                 <AccordionTrigger className="text-left hover:no-underline py-6">
-                  <span className="text-lg font-semibold text-gray-900">
+                  <span className="text-xl font-semibold text-gray-900">
                     18. What kind of support do I get if I have questions or need help?
                   </span>
                 </AccordionTrigger>
@@ -240,7 +240,7 @@ export default function FAQ() {
 
               <AccordionItem value="item-19" className="border border-gray-200 rounded-lg px-6">
                 <AccordionTrigger className="text-left hover:no-underline py-6">
-                  <span className="text-lg font-semibold text-gray-900">
+                  <span className="text-xl font-semibold text-gray-900">
                     19. Can it help me generate more leads or close more deals?
                   </span>
                 </AccordionTrigger>
@@ -251,7 +251,7 @@ export default function FAQ() {
 
               <AccordionItem value="item-20" className="border border-gray-200 rounded-lg px-6">
                 <AccordionTrigger className="text-left hover:no-underline py-6">
-                  <span className="text-lg font-semibold text-gray-900">
+                  <span className="text-xl font-semibold text-gray-900">
                     20. Why should I consider this now? What's the benefit of acting soon?
                   </span>
                 </AccordionTrigger>
