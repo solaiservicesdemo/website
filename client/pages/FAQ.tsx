@@ -230,14 +230,14 @@ export default function FAQ() {
               <Accordion type="single" collapsible className="w-full space-y-4">
                 <AccordionItem
                   value="concerns-1"
-                  className="border border-gray-200 rounded-lg px-6"
+                  className="border border-gray-700 bg-gray-800 rounded-lg px-6"
                 >
                   <AccordionTrigger className="text-left hover:no-underline py-6">
-                    <span className="text-xl font-semibold text-gray-900">
+                    <span className="text-xl font-semibold text-white">
                       How much does it cost?
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="text-base text-gray-700 pb-6 leading-relaxed">
+                  <AccordionContent className="text-base text-gray-300 pb-6 leading-relaxed">
                     We offer a free consultation to demonstrate how it works for
                     your business. After that, we have affordable plans based on
                     your specific needs, typically providing a return on
@@ -247,14 +247,14 @@ export default function FAQ() {
 
                 <AccordionItem
                   value="concerns-2"
-                  className="border border-gray-200 rounded-lg px-6"
+                  className="border border-gray-700 bg-gray-800 rounded-lg px-6"
                 >
                   <AccordionTrigger className="text-left hover:no-underline py-6">
-                    <span className="text-xl font-semibold text-gray-900">
+                    <span className="text-xl font-semibold text-white">
                       Is my business information secure?
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="text-base text-gray-700 pb-6 leading-relaxed">
+                  <AccordionContent className="text-base text-gray-300 pb-6 leading-relaxed">
                     Absolutely. We use enterprise-grade security to protect your
                     data with encryption and strict privacy protocols. Your
                     information is never shared or used for anything other than
@@ -266,14 +266,14 @@ export default function FAQ() {
 
                 <AccordionItem
                   value="concerns-3"
-                  className="border border-gray-200 rounded-lg px-6"
+                  className="border border-gray-700 bg-gray-800 rounded-lg px-6"
                 >
                   <AccordionTrigger className="text-left hover:no-underline py-6">
-                    <span className="text-xl font-semibold text-gray-900">
+                    <span className="text-xl font-semibold text-white">
                       What if I don't have time to learn a new system?
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="text-base text-gray-700 pb-6 leading-relaxed">
+                  <AccordionContent className="text-base text-gray-300 pb-6 leading-relaxed">
                     We get it—your time is precious. That's why we make setup
                     and training super straightforward. During the consultation,
                     we'll show you how to use it in just a few minutes, and
@@ -285,14 +285,14 @@ export default function FAQ() {
 
                 <AccordionItem
                   value="concerns-4"
-                  className="border border-gray-200 rounded-lg px-6"
+                  className="border border-gray-700 bg-gray-800 rounded-lg px-6"
                 >
                   <AccordionTrigger className="text-left hover:no-underline py-6">
-                    <span className="text-xl font-semibold text-gray-900">
+                    <span className="text-xl font-semibold text-white">
                       What if I need help or have questions?
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="text-base text-gray-700 pb-6 leading-relaxed">
+                  <AccordionContent className="text-base text-gray-300 pb-6 leading-relaxed">
                     We provide dedicated support through email, phone, and
                     easy-to-follow guides. You'll have a dedicated support team
                     to answer questions, troubleshoot, or tweak the assistant as
