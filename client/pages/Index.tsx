@@ -192,18 +192,18 @@ export default function Index() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-brand-light">
+      <section className="py-20 bg-gradient-to-br from-black to-gray-900">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Frequently Asked Questions
             </h2>
-            <p className="text-lg text-gray-600 mb-8">
+            <p className="text-lg text-gray-300 mb-8">
               Get answers to common questions about SolAI
             </p>
 
             <Link to="/faq">
-              <Button className="bg-gradient-to-r from-brand-blue to-brand-purple hover:from-brand-purple hover:to-brand-blue text-white font-semibold px-8 py-3 transition-all duration-300 hover:scale-105 hover:shadow-lg">
+              <Button className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-semibold px-8 py-3 transition-all duration-300 hover:scale-105 hover:shadow-lg">
                 <HelpCircle className="w-5 h-5 mr-2" />
                 View FAQ
                 <ArrowRight className="w-5 h-5 ml-2" />
