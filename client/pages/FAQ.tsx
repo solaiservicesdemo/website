@@ -9,25 +9,34 @@ import {
 
 export default function FAQ() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-black">
       {/* Header */}
-      <section className="bg-gradient-to-br from-white via-brand-light to-white py-16">
+      <section className="bg-gradient-to-br from-black via-gray-900 to-black py-16">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
+            {/* SOLAI Logo */}
+            <div className="mb-8 text-center">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets%2Fe7d7c92ddafd455fa21a20820d378b0b%2Fcdd6e8c4eb36421f99eb023bbdbfc72d?format=webp&width=800"
+                alt="SOLAI Logo"
+                className="mx-auto h-24 md:h-28 lg:h-32 w-auto mb-6"
+              />
+            </div>
+
             <Link
               to="/"
-              className="inline-flex items-center text-gray-600 hover:text-brand-blue transition-colors mb-8"
+              className="inline-flex items-center text-gray-400 hover:text-purple-400 transition-colors mb-8"
             >
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Home
             </Link>
 
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              <span className="bg-gradient-to-r from-brand-blue to-brand-purple bg-clip-text text-transparent">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
                 Frequently Asked Questions
               </span>
             </h1>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-gray-300">
               Everything you need to know about SolAI Systems AI Assistant
             </p>
           </div>
@@ -35,25 +44,25 @@ export default function FAQ() {
       </section>
 
       {/* FAQ Content */}
-      <section className="py-20">
+      <section className="py-20 bg-gray-900">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto space-y-12">
             {/* Getting Started Section */}
             <div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-6 border-b-2 border-brand-blue pb-2">
+              <h2 className="text-2xl font-bold text-white mb-6 border-b-2 border-purple-500 pb-2">
                 Getting Started
               </h2>
               <Accordion type="single" collapsible className="w-full space-y-4">
                 <AccordionItem
                   value="getting-started-1"
-                  className="border border-gray-200 rounded-lg px-6"
+                  className="border border-gray-700 bg-gray-800 rounded-lg px-6"
                 >
                   <AccordionTrigger className="text-left hover:no-underline py-6">
-                    <span className="text-xl font-semibold text-gray-900">
+                    <span className="text-xl font-semibold text-white">
                       What exactly is the Solai Systems AI Assistant?
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="text-base text-gray-700 pb-6 leading-relaxed">
+                  <AccordionContent className="text-base text-gray-300 pb-6 leading-relaxed">
                     Think of the AI assistant as your personal business
                     sidekick, like a super-smart virtual employee who works
                     24/7. It's a custom-built platform that automates repetitive
@@ -69,14 +78,14 @@ export default function FAQ() {
 
                 <AccordionItem
                   value="getting-started-2"
-                  className="border border-gray-200 rounded-lg px-6"
+                  className="border border-gray-700 bg-gray-800 rounded-lg px-6"
                 >
                   <AccordionTrigger className="text-left hover:no-underline py-6">
-                    <span className="text-xl font-semibold text-gray-900">
+                    <span className="text-xl font-semibold text-white">
                       Do I need to be tech-savvy to use this AI assistant?
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="text-base text-gray-700 pb-6 leading-relaxed">
+                  <AccordionContent className="text-base text-gray-300 pb-6 leading-relaxed">
                     Not at all! We designed it to be as easy to use as your
                     smartphone. You can interact with it through simple
                     commands, like typing or speaking, just as you'd text a
@@ -89,14 +98,14 @@ export default function FAQ() {
 
                 <AccordionItem
                   value="getting-started-3"
-                  className="border border-gray-200 rounded-lg px-6"
+                  className="border border-gray-700 bg-gray-800 rounded-lg px-6"
                 >
                   <AccordionTrigger className="text-left hover:no-underline py-6">
-                    <span className="text-xl font-semibold text-gray-900">
+                    <span className="text-xl font-semibold text-white">
                       How will it help my specific business?
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="text-base text-gray-700 pb-6 leading-relaxed">
+                  <AccordionContent className="text-base text-gray-300 pb-6 leading-relaxed">
                     It automates time-consuming tasks (saving 5-30 hours per
                     week), helps you serve customers faster, and provides
                     insights to make better business decisions. During our free
@@ -107,14 +116,14 @@ export default function FAQ() {
 
                 <AccordionItem
                   value="getting-started-4"
-                  className="border border-gray-200 rounded-lg px-6"
+                  className="border border-gray-700 bg-gray-800 rounded-lg px-6"
                 >
                   <AccordionTrigger className="text-left hover:no-underline py-6">
-                    <span className="text-xl font-semibold text-gray-900">
+                    <span className="text-xl font-semibold text-white">
                       Is it difficult to use?
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="text-base text-gray-700 pb-6 leading-relaxed">
+                  <AccordionContent className="text-base text-gray-300 pb-6 leading-relaxed">
                     Not at all! You interact with it naturally through text or
                     voice commands, just like texting a colleague. No technical
                     knowledge needed.
