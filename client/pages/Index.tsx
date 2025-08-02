@@ -68,7 +68,7 @@ export default function Index() {
             </p>
 
             {/* Description */}
-            <p className="text-lg md:text-xl text-gray-500 mb-12 max-w-2xl mx-auto leading-relaxed animate-fade-in-delay">
+            <p className="text-lg md:text-xl text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed animate-fade-in-delay">
               SolAI is an upcoming AI-driven platform designed to help
               businesses automate routine tasks like email, scheduling, and
               document handling. Our goal is to simplify business operations,
