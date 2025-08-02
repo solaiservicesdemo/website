@@ -38,9 +38,10 @@ export default function Index() {
             {/* SOLAI Logo */}
             <div className="mb-12 animate-fade-in">
               <img
-                src="https://cdn.builder.io/api/v1/image/assets%2Fe7d7c92ddafd455fa21a20820d378b0b%2Fcdd6e8c4eb36421f99eb023bbdbfc72d?format=webp&width=800"
+                src="https://cdn.builder.io/api/v1/image/assets%2Fe7d7c92ddafd455fa21a20820d378b0b%2F08eed18c3b3c4c8e8bf9758fd9ab2eb0"
                 alt="SOLAI Logo"
-                className="mx-auto h-32 md:h-40 lg:h-48 w-auto"
+                className="mx-auto w-auto pb-px"
+                style={{ height: "419px", margin: "-150px auto" }}
               />
             </div>
 
