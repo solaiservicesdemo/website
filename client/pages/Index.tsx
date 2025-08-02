@@ -55,15 +55,15 @@ export default function Index() {
               </Badge>
             </div>
 
-            {/* Main Heading */}
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 animate-slide-up">
-              <span className="bg-gradient-to-r from-gray-900 via-brand-blue to-brand-purple bg-clip-text text-transparent">
-                SolAI
+            {/* Tagline below logo */}
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 animate-slide-up">
+              <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-purple-300 bg-clip-text text-transparent">
+                DAY ONE OF AI
               </span>
             </h1>
 
-            {/* Tagline */}
-            <p className="text-xl md:text-2xl lg:text-3xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed animate-slide-up-delay">
+            {/* Main Description */}
+            <p className="text-xl md:text-2xl lg:text-3xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed animate-slide-up-delay">
               AI-powered workflow automation for smarter businesses
             </p>
 
