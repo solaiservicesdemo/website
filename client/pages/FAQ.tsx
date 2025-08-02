@@ -312,14 +312,14 @@ export default function FAQ() {
               <Accordion type="single" collapsible className="w-full space-y-4">
                 <AccordionItem
                   value="benefits-1"
-                  className="border border-gray-200 rounded-lg px-6"
+                  className="border border-gray-700 bg-gray-800 rounded-lg px-6"
                 >
                   <AccordionTrigger className="text-left hover:no-underline py-6">
-                    <span className="text-xl font-semibold text-gray-900">
+                    <span className="text-xl font-semibold text-white">
                       How will this help me grow my business?
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="text-base text-gray-700 pb-6 leading-relaxed">
+                  <AccordionContent className="text-base text-gray-300 pb-6 leading-relaxed">
                     By saving you time and improving efficiency, you can serve
                     more customers, identify new opportunities, and focus on
                     strategic growth instead of routine tasks.
@@ -328,15 +328,15 @@ export default function FAQ() {
 
                 <AccordionItem
                   value="benefits-2"
-                  className="border border-gray-200 rounded-lg px-6"
+                  className="border border-gray-700 bg-gray-800 rounded-lg px-6"
                 >
                   <AccordionTrigger className="text-left hover:no-underline py-6">
-                    <span className="text-xl font-semibold text-gray-900">
+                    <span className="text-xl font-semibold text-white">
                       Can it communicate in a way that matches my business
                       style?
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="text-base text-gray-700 pb-6 leading-relaxed">
+                  <AccordionContent className="text-base text-gray-300 pb-6 leading-relaxed">
                     Absolutely! The assistant can use a professional tone that
                     matches your style, and we can even give it a custom voice
                     that sounds like you for phone calls or messages. This makes
@@ -346,14 +346,14 @@ export default function FAQ() {
 
                 <AccordionItem
                   value="benefits-3"
-                  className="border border-gray-200 rounded-lg px-6"
+                  className="border border-gray-700 bg-gray-800 rounded-lg px-6"
                 >
                   <AccordionTrigger className="text-left hover:no-underline py-6">
-                    <span className="text-xl font-semibold text-gray-900">
+                    <span className="text-xl font-semibold text-white">
                       Why should I consider this now?
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="text-base text-gray-700 pb-6 leading-relaxed">
+                  <AccordionContent className="text-base text-gray-300 pb-6 leading-relaxed">
                     Early adopters are already seeing significant benefits in
                     efficiency and customer satisfaction. Getting started now
                     gives you a competitive advantage while the technology is
