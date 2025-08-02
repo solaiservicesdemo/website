@@ -27,7 +27,7 @@ export default function Index() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-black">
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-white via-brand-light to-white min-h-screen flex items-center">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(120,119,198,0.3),transparent_50%)] pointer-events-none" />
