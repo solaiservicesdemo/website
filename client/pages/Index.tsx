@@ -214,22 +214,22 @@ export default function Index() {
       </section>
 
       {/* Contact Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gray-900">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Get in Touch
             </h2>
-            <p className="text-lg text-gray-600 mb-8">
+            <p className="text-lg text-gray-300 mb-8">
               Have questions about SolAI? We'd love to hear from you.
             </p>
 
-            <div className="bg-gradient-to-br from-gray-50 to-brand-light rounded-2xl p-8 inline-block">
-              <div className="flex items-center justify-center gap-3 text-lg text-gray-700">
-                <Mail className="w-6 h-6 text-brand-blue" />
+            <div className="bg-gradient-to-br from-gray-800 to-gray-700 border border-gray-600 rounded-2xl p-8 inline-block">
+              <div className="flex items-center justify-center gap-3 text-lg text-gray-200">
+                <Mail className="w-6 h-6 text-purple-400" />
                 <a
                   href="mailto:jtgeldart@solai-systems.com"
-                  className="hover:text-brand-blue transition-colors duration-300 font-medium"
+                  className="hover:text-purple-400 transition-colors duration-300 font-medium"
                 >
                   jtgeldart@solai-systems.com
                 </a>
