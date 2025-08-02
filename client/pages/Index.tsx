@@ -29,12 +29,21 @@ export default function Index() {
   return (
     <div className="min-h-screen bg-black">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-white via-brand-light to-white min-h-screen flex items-center">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(120,119,198,0.3),transparent_50%)] pointer-events-none" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(34,197,94,0.2),transparent_50%)] pointer-events-none" />
+      <section className="relative overflow-hidden bg-gradient-to-br from-black via-gray-900 to-black min-h-screen flex items-center">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(139,69,255,0.4),transparent_50%)] pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(59,130,246,0.3),transparent_50%)] pointer-events-none" />
 
         <div className="container mx-auto px-6 py-20 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
+            {/* SOLAI Logo */}
+            <div className="mb-12 animate-fade-in">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets%2Fe7d7c92ddafd455fa21a20820d378b0b%2Fcdd6e8c4eb36421f99eb023bbdbfc72d?format=webp&width=800"
+                alt="SOLAI Logo"
+                className="mx-auto h-32 md:h-40 lg:h-48 w-auto"
+              />
+            </div>
+
             {/* Coming Soon Badge */}
             <div className="mb-8 animate-fade-in">
               <Badge
