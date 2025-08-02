@@ -134,7 +134,7 @@ export default function FAQ() {
 
             {/* Key Features Section */}
             <div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-6 border-b-2 border-brand-blue pb-2">
+              <h2 className="text-2xl font-bold text-white mb-6 border-b-2 border-purple-500 pb-2">
                 Key Features
               </h2>
               <Accordion type="single" collapsible className="w-full space-y-4">
