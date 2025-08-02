@@ -87,12 +87,12 @@ export default function Index() {
                   placeholder="Enter your email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="flex-1 h-12 text-lg border-2 border-gray-200 focus:border-brand-blue transition-colors"
+                  className="flex-1 h-12 text-lg border-2 border-gray-600 bg-gray-800 text-white placeholder-gray-400 focus:border-purple-500 transition-colors"
                   required
                 />
                 <Button
                   type="submit"
-                  className="h-12 px-8 bg-gradient-to-r from-brand-blue to-brand-purple hover:from-brand-purple hover:to-brand-blue text-white font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                  className="h-12 px-8 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg"
                   disabled={isSubmitted}
                 >
                   {isSubmitted ? (
