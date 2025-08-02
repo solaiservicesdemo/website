@@ -140,14 +140,14 @@ export default function FAQ() {
               <Accordion type="single" collapsible className="w-full space-y-4">
                 <AccordionItem
                   value="features-1"
-                  className="border border-gray-200 rounded-lg px-6"
+                  className="border border-gray-700 bg-gray-800 rounded-lg px-6"
                 >
                   <AccordionTrigger className="text-left hover:no-underline py-6">
-                    <span className="text-xl font-semibold text-gray-900">
+                    <span className="text-xl font-semibold text-white">
                       What kind of tasks can the AI assistant handle for me?
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="text-base text-gray-700 pb-6 leading-relaxed">
+                  <AccordionContent className="text-base text-gray-300 pb-6 leading-relaxed">
                     <p className="mb-3">
                       It's incredibly versatile! Here are some examples:
                     </p>
@@ -170,14 +170,14 @@ export default function FAQ() {
 
                 <AccordionItem
                   value="features-2"
-                  className="border border-gray-200 rounded-lg px-6"
+                  className="border border-gray-700 bg-gray-800 rounded-lg px-6"
                 >
                   <AccordionTrigger className="text-left hover:no-underline py-6">
-                    <span className="text-xl font-semibold text-gray-900">
+                    <span className="text-xl font-semibold text-white">
                       How is this different from tools I already use?
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="text-base text-gray-700 pb-6 leading-relaxed">
+                  <AccordionContent className="text-base text-gray-300 pb-6 leading-relaxed">
                     Unlike single-purpose apps, it combines everything into one
                     intelligent system that connects your tasks automatically.
                     For example, it can schedule a meeting, send a confirmation,
@@ -187,14 +187,14 @@ export default function FAQ() {
 
                 <AccordionItem
                   value="features-3"
-                  className="border border-gray-200 rounded-lg px-6"
+                  className="border border-gray-700 bg-gray-800 rounded-lg px-6"
                 >
                   <AccordionTrigger className="text-left hover:no-underline py-6">
-                    <span className="text-xl font-semibold text-gray-900">
+                    <span className="text-xl font-semibold text-white">
                       Will it work with my existing tools?
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="text-base text-gray-700 pb-6 leading-relaxed">
+                  <AccordionContent className="text-base text-gray-300 pb-6 leading-relaxed">
                     Yes, it integrates with popular email services, calendars,
                     and business software you're already using.
                   </AccordionContent>
@@ -202,15 +202,15 @@ export default function FAQ() {
 
                 <AccordionItem
                   value="features-4"
-                  className="border border-gray-200 rounded-lg px-6"
+                  className="border border-gray-700 bg-gray-800 rounded-lg px-6"
                 >
                   <AccordionTrigger className="text-left hover:no-underline py-6">
-                    <span className="text-xl font-semibold text-gray-900">
+                    <span className="text-xl font-semibold text-white">
                       How do I interact with the assistant? Do I need a special
                       app?
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="text-base text-gray-700 pb-6 leading-relaxed">
+                  <AccordionContent className="text-base text-gray-300 pb-6 leading-relaxed">
                     You can interact with it in whatever way feels
                     natural—through a web dashboard, email, text, or even voice
                     commands on your phone. It's like texting or talking to a
