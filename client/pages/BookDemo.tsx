@@ -54,7 +54,7 @@ export default function BookDemo() {
         hour,
         label: hour === 12 ? "12:00 PM" : hour > 12 ? `${hour - 12}:00 PM` : `${hour}:00 AM`,
         // Mock availability - make some slots unavailable for demo
-        available: Math.random() > 0.3, // 70% chance of being available
+        available: Math.random() > 0.2, // 80% chance of being available
       };
       slots.push(slot);
     }
