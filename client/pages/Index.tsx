@@ -228,7 +228,7 @@ export default function Index() {
             <div className="space-y-6">
               <div className="flex justify-center">
                 <Link to="/book-demo">
-                  <Button className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-semibold px-12 py-4 text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                  <Button className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-semibold px-12 py-5 text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg h-[50px]">
                     <Calendar className="w-6 h-6 mr-3" />
                     Book a Demo
                     <ArrowRight className="w-6 h-6 ml-3" />
@@ -238,12 +238,12 @@ export default function Index() {
 
               <div className="flex flex-col items-center justify-center gap-3">
                 <span className="text-gray-400 text-sm">or</span>
-                <div className="bg-gradient-to-br from-gray-800 to-gray-700 border border-gray-600 rounded-xl p-4">
+                <div className="bg-gradient-to-br from-gray-800 to-gray-700 border border-gray-600 rounded-xl p-4 h-auto flex-grow-0">
                   <div className="flex items-center justify-center gap-2 text-sm text-gray-200">
                     <Mail className="w-4 h-4 text-purple-400" />
                     <a
                       href="mailto:jtgeldart@solai-systems.com"
-                      className="hover:text-purple-400 transition-colors duration-300 font-medium"
+                      className="hover:text-purple-400 transition-colors duration-300 font-medium text-lg"
                     >
                       jtgeldart@solai-systems.com
                     </a>
