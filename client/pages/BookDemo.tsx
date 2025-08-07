@@ -49,11 +49,25 @@ export default function BookDemo() {
   const generateTimeSlots = (date: Date): TimeSlot[] => {
     const slots: TimeSlot[] = [];
     for (let hour = 11; hour <= 16; hour++) {
+      // Create deterministic availability based on date and hour to prevent switching
+      const dateString = date.toDateString();
+      const hashCode = (str: string) => {
+        let hash = 0;
+        for (let i = 0; i < str.length; i++) {
+          const char = str.charCodeAt(i);
+          hash = ((hash << 5) - hash) + char;
+          hash = hash & hash; // Convert to 32bit integer
+        }
+        return hash;
+      };
+
+      const seed = Math.abs(hashCode(dateString + hour.toString()));
+      const available = (seed % 10) > 1; // 80% chance of being available
+
       const slot: TimeSlot = {
         hour,
         label: hour === 12 ? "12:00 PM" : hour > 12 ? `${hour - 12}:00 PM` : `${hour}:00 AM`,
-        // Mock availability - make some slots unavailable for demo
-        available: Math.random() > 0.2, // 80% chance of being available
+        available,
       };
       slots.push(slot);
     }
