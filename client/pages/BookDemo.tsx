@@ -303,11 +303,6 @@ export default function BookDemo() {
                             )}
                           >
                             {slot.label}
-                            {!slot.available && (
-                              <Badge variant="secondary" className="ml-2 bg-red-900 text-red-200">
-                                Unavailable
-                              </Badge>
-                            )}
                           </button>
                         ))}
                     </div>
