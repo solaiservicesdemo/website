@@ -201,7 +201,7 @@ export default function BookDemo() {
           {/* Header */}
           <div className="mb-8">
             <Link to="/">
-              <Button variant="outline" className="mb-4 border-gray-600 text-gray-300 hover:bg-gray-800">
+              <Button className="mb-4 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white transition-all duration-300 hover:scale-105">
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Back to Home
               </Button>
