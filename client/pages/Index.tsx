@@ -226,27 +226,29 @@ export default function Index() {
             </p>
 
             <div className="space-y-6">
-              <div className="bg-gradient-to-br from-gray-800 to-gray-700 border border-gray-600 rounded-2xl p-8 inline-block">
-                <div className="flex items-center justify-center gap-3 text-lg text-gray-200">
-                  <Mail className="w-6 h-6 text-purple-400" />
-                  <a
-                    href="mailto:jtgeldart@solai-systems.com"
-                    className="hover:text-purple-400 transition-colors duration-300 font-medium"
-                  >
-                    jtgeldart@solai-systems.com
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
-                <span className="text-gray-400">or</span>
+              <div className="flex justify-center">
                 <Link to="/book-demo">
-                  <Button className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-semibold px-8 py-3 transition-all duration-300 hover:scale-105 hover:shadow-lg">
-                    <Calendar className="w-5 h-5 mr-2" />
+                  <Button className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-semibold px-12 py-4 text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                    <Calendar className="w-6 h-6 mr-3" />
                     Book a Demo
-                    <ArrowRight className="w-5 h-5 ml-2" />
+                    <ArrowRight className="w-6 h-6 ml-3" />
                   </Button>
                 </Link>
+              </div>
+
+              <div className="flex flex-col items-center justify-center gap-3">
+                <span className="text-gray-400 text-sm">or</span>
+                <div className="bg-gradient-to-br from-gray-800 to-gray-700 border border-gray-600 rounded-xl p-4">
+                  <div className="flex items-center justify-center gap-2 text-sm text-gray-200">
+                    <Mail className="w-4 h-4 text-purple-400" />
+                    <a
+                      href="mailto:jtgeldart@solai-systems.com"
+                      className="hover:text-purple-400 transition-colors duration-300 font-medium"
+                    >
+                      jtgeldart@solai-systems.com
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
