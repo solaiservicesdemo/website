@@ -225,15 +225,28 @@ export default function Index() {
               Have questions about SolAI? We'd love to hear from you.
             </p>
 
-            <div className="bg-gradient-to-br from-gray-800 to-gray-700 border border-gray-600 rounded-2xl p-8 inline-block">
-              <div className="flex items-center justify-center gap-3 text-lg text-gray-200">
-                <Mail className="w-6 h-6 text-purple-400" />
-                <a
-                  href="mailto:jtgeldart@solai-systems.com"
-                  className="hover:text-purple-400 transition-colors duration-300 font-medium"
-                >
-                  jtgeldart@solai-systems.com
-                </a>
+            <div className="space-y-6">
+              <div className="bg-gradient-to-br from-gray-800 to-gray-700 border border-gray-600 rounded-2xl p-8 inline-block">
+                <div className="flex items-center justify-center gap-3 text-lg text-gray-200">
+                  <Mail className="w-6 h-6 text-purple-400" />
+                  <a
+                    href="mailto:jtgeldart@solai-systems.com"
+                    className="hover:text-purple-400 transition-colors duration-300 font-medium"
+                  >
+                    jtgeldart@solai-systems.com
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
+                <span className="text-gray-400">or</span>
+                <Link to="/book-demo">
+                  <Button className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-semibold px-8 py-3 transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                    <Calendar className="w-5 h-5 mr-2" />
+                    Book a Demo
+                    <ArrowRight className="w-5 h-5 ml-2" />
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
