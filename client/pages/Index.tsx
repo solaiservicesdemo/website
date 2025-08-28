@@ -85,7 +85,7 @@ export default function Index() {
                   placeholder="Enter your email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="flex-1 h-12 text-lg border-2 border-gray-600 bg-gray-800 text-white placeholder-gray-400 focus:border-purple-500 transition-colors"
+                  className="flex-1 h-12 text-lg bg-secondary/60 border-input placeholder:text-muted-foreground"
                   required
                 />
                 <Button
