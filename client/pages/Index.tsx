@@ -201,7 +201,7 @@ export default function Index() {
             </p>
 
             <Link to="/faq">
-              <Button className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-semibold px-8 py-3 transition-all duration-300 hover:scale-105 hover:shadow-lg">
+              <Button className="bg-gradient-to-r from-brand-blue to-brand-purple hover:from-brand-blue/90 hover:to-brand-purple/90 text-white font-semibold px-8 py-3 transition-all duration-300 hover:scale-105 hover:shadow-lg">
                 <HelpCircle className="w-5 h-5 mr-2" />
                 View FAQ
                 <ArrowRight className="w-5 h-5 ml-2" />
