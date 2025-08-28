@@ -253,7 +253,7 @@ export default function Index() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-black text-white py-12">
+      <footer className="bg-[hsl(var(--background))] text-white py-12 border-t border-border">
         <div className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto">
             <div className="flex flex-col md:flex-row items-center justify-between">
