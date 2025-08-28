@@ -225,7 +225,7 @@ export default function Index() {
             <div className="space-y-6">
               <div className="flex justify-center">
                 <Link to="/book-demo">
-                  <Button className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-semibold px-12 py-5 text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg h-[50px]">
+                  <Button className="bg-gradient-to-r from-brand-blue to-brand-purple hover:from-brand-blue/90 hover:to-brand-purple/90 text-white font-semibold px-12 py-5 text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg h-[50px]">
                     <Calendar className="w-6 h-6 mr-3" />
                     Book a Demo
                     <ArrowRight className="w-6 h-6 ml-3" />
