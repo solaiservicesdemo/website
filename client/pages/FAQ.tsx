@@ -13,35 +13,35 @@ export default function FAQ() {
     window.scrollTo(0, 0);
   }, []);
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-background">
       {/* Header */}
-      <section className="bg-gradient-to-br from-black via-gray-900 to-black py-16">
+      <section className="hero-surface py-16 relative overflow-hidden">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             {/* SOLAI Logo */}
-            <div className="mb-8 text-center">
+            <div className="mb-8 text-center relative">
               <img
-                src="https://cdn.builder.io/api/v1/image/assets%2Fe7d7c92ddafd455fa21a20820d378b0b%2F08eed18c3b3c4c8e8bf9758fd9ab2eb0"
-                alt="SOLAI Logo"
-                className="mx-auto w-auto mb-6 pb-px"
-                style={{ height: "419px", margin: "-150px auto" }}
+                src="https://cdn.builder.io/api/v1/image/assets%2Fe7d7c92ddafd455fa21a20820d378b0b%2Fe07c084267434cfe8bd6ba2846044dce?format=webp&width=1200"
+                alt="SolAI Systems logo"
+                className="logo-blend mx-auto w-[min(88vw,700px)] h-auto select-none"
+                draggable={false}
               />
             </div>
 
             <Link
               to="/"
-              className="inline-flex items-center text-gray-400 hover:text-purple-400 transition-colors mb-8"
+              className="inline-flex items-center text-gray-400 hover:text-[hsl(var(--brand-blue))] transition-colors mb-8"
             >
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Home
             </Link>
 
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+            <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-4 font-display tracking-wide">
+              <span className="bg-gradient-to-r from-brand-blue to-slate-400 bg-clip-text text-transparent">
                 Frequently Asked Questions
               </span>
             </h1>
-            <p className="text-lg text-gray-300">
+            <p className="text-lg text-muted-foreground">
               Everything you need to know about SolAI Systems AI Assistant
             </p>
           </div>
@@ -49,25 +49,25 @@ export default function FAQ() {
       </section>
 
       {/* FAQ Content */}
-      <section className="py-20 bg-gray-900">
+      <section className="py-20 bg-[hsl(var(--background))]">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto space-y-12">
             {/* Getting Started Section */}
             <div>
-              <h2 className="text-2xl font-bold text-white mb-6 border-b-2 border-purple-500 pb-2">
+              <h2 className="text-2xl font-bold text-white mb-6 border-b-2 border-[hsl(var(--brand-blue))] pb-2">
                 Getting Started
               </h2>
               <Accordion type="single" collapsible className="w-full space-y-4">
                 <AccordionItem
                   value="getting-started-1"
-                  className="border border-gray-700 bg-gray-800 rounded-lg px-6"
+                  className="border border-border bg-secondary rounded-lg px-6"
                 >
                   <AccordionTrigger className="text-left hover:no-underline py-6">
                     <span className="text-xl font-semibold text-white">
                       What exactly is the Solai Systems AI Assistant?
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="text-base text-gray-300 pb-6 leading-relaxed">
+                  <AccordionContent className="text-base text-muted-foreground pb-6 leading-relaxed">
                     Think of the AI assistant as your personal business
                     sidekick, like a super-smart virtual employee who works
                     24/7. It's a custom-built platform that automates repetitive
@@ -83,14 +83,14 @@ export default function FAQ() {
 
                 <AccordionItem
                   value="getting-started-2"
-                  className="border border-gray-700 bg-gray-800 rounded-lg px-6"
+                  className="border border-border bg-secondary rounded-lg px-6"
                 >
                   <AccordionTrigger className="text-left hover:no-underline py-6">
                     <span className="text-xl font-semibold text-white">
                       Do I need to be tech-savvy to use this AI assistant?
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="text-base text-gray-300 pb-6 leading-relaxed">
+                  <AccordionContent className="text-base text-muted-foreground pb-6 leading-relaxed">
                     Not at all! We designed it to be as easy to use as your
                     smartphone. You can interact with it through simple
                     commands, like typing or speaking, just as you'd text a
@@ -103,14 +103,14 @@ export default function FAQ() {
 
                 <AccordionItem
                   value="getting-started-3"
-                  className="border border-gray-700 bg-gray-800 rounded-lg px-6"
+                  className="border border-border bg-secondary rounded-lg px-6"
                 >
                   <AccordionTrigger className="text-left hover:no-underline py-6">
                     <span className="text-xl font-semibold text-white">
                       How will it help my specific business?
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="text-base text-gray-300 pb-6 leading-relaxed">
+                  <AccordionContent className="text-base text-muted-foreground pb-6 leading-relaxed">
                     It automates time-consuming tasks (saving 5-30 hours per
                     week), helps you serve customers faster, and provides
                     insights to make better business decisions. During our free
@@ -121,14 +121,14 @@ export default function FAQ() {
 
                 <AccordionItem
                   value="getting-started-4"
-                  className="border border-gray-700 bg-gray-800 rounded-lg px-6"
+                  className="border border-border bg-secondary rounded-lg px-6"
                 >
                   <AccordionTrigger className="text-left hover:no-underline py-6">
                     <span className="text-xl font-semibold text-white">
                       Is it difficult to use?
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="text-base text-gray-300 pb-6 leading-relaxed">
+                  <AccordionContent className="text-base text-muted-foreground pb-6 leading-relaxed">
                     Not at all! You interact with it naturally through text or
                     voice commands, just like texting a colleague. No technical
                     knowledge needed.
@@ -139,20 +139,20 @@ export default function FAQ() {
 
             {/* Key Features Section */}
             <div>
-              <h2 className="text-2xl font-bold text-white mb-6 border-b-2 border-purple-500 pb-2">
+              <h2 className="text-2xl font-bold text-white mb-6 border-b-2 border-[hsl(var(--brand-blue))] pb-2">
                 Key Features
               </h2>
               <Accordion type="single" collapsible className="w-full space-y-4">
                 <AccordionItem
                   value="features-1"
-                  className="border border-gray-700 bg-gray-800 rounded-lg px-6"
+                  className="border border-border bg-secondary rounded-lg px-6"
                 >
                   <AccordionTrigger className="text-left hover:no-underline py-6">
                     <span className="text-xl font-semibold text-white">
                       What kind of tasks can the AI assistant handle for me?
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="text-base text-gray-300 pb-6 leading-relaxed">
+                  <AccordionContent className="text-base text-muted-foreground pb-6 leading-relaxed">
                     <p className="mb-3">
                       It's incredibly versatile! Here are some examples:
                     </p>
@@ -175,14 +175,14 @@ export default function FAQ() {
 
                 <AccordionItem
                   value="features-2"
-                  className="border border-gray-700 bg-gray-800 rounded-lg px-6"
+                  className="border border-border bg-secondary rounded-lg px-6"
                 >
                   <AccordionTrigger className="text-left hover:no-underline py-6">
                     <span className="text-xl font-semibold text-white">
                       How is this different from tools I already use?
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="text-base text-gray-300 pb-6 leading-relaxed">
+                  <AccordionContent className="text-base text-muted-foreground pb-6 leading-relaxed">
                     Unlike single-purpose apps, it combines everything into one
                     intelligent system that connects your tasks automatically.
                     For example, it can schedule a meeting, send a confirmation,
@@ -192,14 +192,14 @@ export default function FAQ() {
 
                 <AccordionItem
                   value="features-3"
-                  className="border border-gray-700 bg-gray-800 rounded-lg px-6"
+                  className="border border-border bg-secondary rounded-lg px-6"
                 >
                   <AccordionTrigger className="text-left hover:no-underline py-6">
                     <span className="text-xl font-semibold text-white">
                       Will it work with my existing tools?
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="text-base text-gray-300 pb-6 leading-relaxed">
+                  <AccordionContent className="text-base text-muted-foreground pb-6 leading-relaxed">
                     Yes, it integrates with popular email services, calendars,
                     and business software you're already using.
                   </AccordionContent>
@@ -207,7 +207,7 @@ export default function FAQ() {
 
                 <AccordionItem
                   value="features-4"
-                  className="border border-gray-700 bg-gray-800 rounded-lg px-6"
+                  className="border border-border bg-secondary rounded-lg px-6"
                 >
                   <AccordionTrigger className="text-left hover:no-underline py-6">
                     <span className="text-xl font-semibold text-white">
@@ -215,7 +215,7 @@ export default function FAQ() {
                       app?
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="text-base text-gray-300 pb-6 leading-relaxed">
+                  <AccordionContent className="text-base text-muted-foreground pb-6 leading-relaxed">
                     You can interact with it in whatever way feels
                     natural—through a web dashboard, email, text, or even voice
                     commands on your phone. It's like texting or talking to a
@@ -229,20 +229,20 @@ export default function FAQ() {
 
             {/* Practical Concerns Section */}
             <div>
-              <h2 className="text-2xl font-bold text-white mb-6 border-b-2 border-purple-500 pb-2">
+              <h2 className="text-2xl font-bold text-white mb-6 border-b-2 border-[hsl(var(--brand-blue))] pb-2">
                 Practical Concerns
               </h2>
               <Accordion type="single" collapsible className="w-full space-y-4">
                 <AccordionItem
                   value="concerns-1"
-                  className="border border-gray-700 bg-gray-800 rounded-lg px-6"
+                  className="border border-border bg-secondary rounded-lg px-6"
                 >
                   <AccordionTrigger className="text-left hover:no-underline py-6">
                     <span className="text-xl font-semibold text-white">
                       How much does it cost?
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="text-base text-gray-300 pb-6 leading-relaxed">
+                  <AccordionContent className="text-base text-muted-foreground pb-6 leading-relaxed">
                     We offer a free consultation to demonstrate how it works for
                     your business. After that, we have affordable plans based on
                     your specific needs, typically providing a return on
@@ -252,14 +252,14 @@ export default function FAQ() {
 
                 <AccordionItem
                   value="concerns-2"
-                  className="border border-gray-700 bg-gray-800 rounded-lg px-6"
+                  className="border border-border bg-secondary rounded-lg px-6"
                 >
                   <AccordionTrigger className="text-left hover:no-underline py-6">
                     <span className="text-xl font-semibold text-white">
                       Is my business information secure?
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="text-base text-gray-300 pb-6 leading-relaxed">
+                  <AccordionContent className="text-base text-muted-foreground pb-6 leading-relaxed">
                     Absolutely. We use enterprise-grade security to protect your
                     data with encryption and strict privacy protocols. Your
                     information is never shared or used for anything other than
@@ -271,14 +271,14 @@ export default function FAQ() {
 
                 <AccordionItem
                   value="concerns-3"
-                  className="border border-gray-700 bg-gray-800 rounded-lg px-6"
+                  className="border border-border bg-secondary rounded-lg px-6"
                 >
                   <AccordionTrigger className="text-left hover:no-underline py-6">
                     <span className="text-xl font-semibold text-white">
                       What if I don't have time to learn a new system?
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="text-base text-gray-300 pb-6 leading-relaxed">
+                  <AccordionContent className="text-base text-muted-foreground pb-6 leading-relaxed">
                     We get it—your time is precious. That's why we make setup
                     and training super straightforward. During the consultation,
                     we'll show you how to use it in just a few minutes, and
@@ -290,14 +290,14 @@ export default function FAQ() {
 
                 <AccordionItem
                   value="concerns-4"
-                  className="border border-gray-700 bg-gray-800 rounded-lg px-6"
+                  className="border border-border bg-secondary rounded-lg px-6"
                 >
                   <AccordionTrigger className="text-left hover:no-underline py-6">
                     <span className="text-xl font-semibold text-white">
                       What if I need help or have questions?
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="text-base text-gray-300 pb-6 leading-relaxed">
+                  <AccordionContent className="text-base text-muted-foreground pb-6 leading-relaxed">
                     We provide dedicated support through email, phone, and
                     easy-to-follow guides. You'll have a dedicated support team
                     to answer questions, troubleshoot, or tweak the assistant as
@@ -311,20 +311,20 @@ export default function FAQ() {
 
             {/* Business Benefits Section */}
             <div>
-              <h2 className="text-2xl font-bold text-white mb-6 border-b-2 border-purple-500 pb-2">
+              <h2 className="text-2xl font-bold text-white mb-6 border-b-2 border-[hsl(var(--brand-blue))] pb-2">
                 Business Benefits
               </h2>
               <Accordion type="single" collapsible className="w-full space-y-4">
                 <AccordionItem
                   value="benefits-1"
-                  className="border border-gray-700 bg-gray-800 rounded-lg px-6"
+                  className="border border-border bg-secondary rounded-lg px-6"
                 >
                   <AccordionTrigger className="text-left hover:no-underline py-6">
                     <span className="text-xl font-semibold text-white">
                       How will this help me grow my business?
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="text-base text-gray-300 pb-6 leading-relaxed">
+                  <AccordionContent className="text-base text-muted-foreground pb-6 leading-relaxed">
                     By saving you time and improving efficiency, you can serve
                     more customers, identify new opportunities, and focus on
                     strategic growth instead of routine tasks.
@@ -333,7 +333,7 @@ export default function FAQ() {
 
                 <AccordionItem
                   value="benefits-2"
-                  className="border border-gray-700 bg-gray-800 rounded-lg px-6"
+                  className="border border-border bg-secondary rounded-lg px-6"
                 >
                   <AccordionTrigger className="text-left hover:no-underline py-6">
                     <span className="text-xl font-semibold text-white">
@@ -341,7 +341,7 @@ export default function FAQ() {
                       style?
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="text-base text-gray-300 pb-6 leading-relaxed">
+                  <AccordionContent className="text-base text-muted-foreground pb-6 leading-relaxed">
                     Absolutely! The assistant can use a professional tone that
                     matches your style, and we can even give it a custom voice
                     that sounds like you for phone calls or messages. This makes
@@ -351,14 +351,14 @@ export default function FAQ() {
 
                 <AccordionItem
                   value="benefits-3"
-                  className="border border-gray-700 bg-gray-800 rounded-lg px-6"
+                  className="border border-border bg-secondary rounded-lg px-6"
                 >
                   <AccordionTrigger className="text-left hover:no-underline py-6">
                     <span className="text-xl font-semibold text-white">
                       Why should I consider this now?
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="text-base text-gray-300 pb-6 leading-relaxed">
+                  <AccordionContent className="text-base text-muted-foreground pb-6 leading-relaxed">
                     Early adopters are already seeing significant benefits in
                     efficiency and customer satisfaction. Getting started now
                     gives you a competitive advantage while the technology is
