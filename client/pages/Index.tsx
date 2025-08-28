@@ -61,7 +61,7 @@ export default function Index() {
             </h1>
 
             {/* Main Description */}
-            <p className="text-xl md:text-2xl lg:text-3xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed animate-slide-up-delay">
+            <p className="text-xl md:text-2xl lg:text-3xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed animate-slide-up-delay">
               AI-powered workflow automation for smarter businesses
             </p>
 
