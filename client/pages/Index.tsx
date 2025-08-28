@@ -190,7 +190,7 @@ export default function Index() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-gradient-to-br from-black to-gray-900">
+      <section className="py-20 bg-[radial-gradient(900px_600px_at_85%_10%,hsl(var(--brand-blue)/0.12),transparent_60%),hsl(var(--background))]">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
