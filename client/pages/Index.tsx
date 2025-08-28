@@ -196,7 +196,7 @@ export default function Index() {
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Frequently Asked Questions
             </h2>
-            <p className="text-lg text-gray-300 mb-8">
+            <p className="text-lg text-muted-foreground mb-8">
               Get answers to common questions about SolAI
             </p>
 
@@ -218,7 +218,7 @@ export default function Index() {
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Get in Touch
             </h2>
-            <p className="text-lg text-gray-300 mb-8">
+            <p className="text-lg text-muted-foreground mb-8">
               Have questions about SolAI? We'd love to hear from you.
             </p>
 
