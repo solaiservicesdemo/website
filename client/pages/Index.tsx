@@ -174,7 +174,7 @@ export default function Index() {
               {/* Feature 4 */}
               <div className="bg-secondary border border-border rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
                 <div className="w-16 h-16 bg-gradient-to-br from-brand-blue to-brand-purple rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <CheckCircle className="w-8 h-8 text-white" />
+                  <CheckCircle className="w-8 h-8 text-white drop-shadow" />
                 </div>
                 <h3 className="text-xl font-semibold text-white mb-3">
                   Simple & Secure
