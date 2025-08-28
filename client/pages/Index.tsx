@@ -44,21 +44,7 @@ export default function Index() {
               />
             </div>
 
-            {/* Coming Soon Badge */}
-            <div className="mb-8 animate-fade-in">
-              <Badge
-                variant="secondary"
-                className="bg-gradient-to-r from-brand-blue to-brand-purple text-white border-none px-6 py-2 text-sm font-medium shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
-              >
-                <Sparkles className="w-4 h-4 mr-2" />
-                Coming Soon
-              </Badge>
-            </div>
-
-            {/* Tagline below logo */}
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 animate-slide-up font-display tracking-wide">
-              <span className="text-metallic">DAY 1 OF AI</span>
-            </h1>
+            <div className="h-2" />
 
             {/* Main Description */}
             <p className="text-xl md:text-2xl lg:text-3xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed animate-slide-up-delay">
@@ -90,7 +76,7 @@ export default function Index() {
                 />
                 <Button
                   type="submit"
-                  className="h-12 px-8 bg-gradient-to-r from-brand-blue to-brand-purple hover:from-brand-blue/90 hover:to-brand-purple/90 text-white font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                  className="h-12 px-8 bg-gradient-to-r from-brand-blue to-slate-500 hover:from-brand-blue/90 hover:to-slate-500/90 text-white font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg"
                   disabled={isSubmitted}
                 >
                   {isSubmitted ? (
@@ -131,7 +117,7 @@ export default function Index() {
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {/* Feature 1 */}
               <div className="bg-secondary border border-border rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
-                <div className="w-16 h-16 bg-gradient-to-br from-brand-blue to-brand-purple rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-16 h-16 bg-gradient-to-br from-brand-blue to-slate-600/40 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                   <Mail className="w-8 h-8 text-white drop-shadow" />
                 </div>
                 <h3 className="text-xl font-semibold text-white mb-3">
@@ -145,7 +131,7 @@ export default function Index() {
 
               {/* Feature 2 */}
               <div className="bg-secondary border border-border rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
-                <div className="w-16 h-16 bg-gradient-to-br from-brand-blue to-brand-purple rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-16 h-16 bg-gradient-to-br from-brand-blue to-slate-600/40 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                   <Bot className="w-8 h-8 text-white drop-shadow" />
                 </div>
                 <h3 className="text-xl font-semibold text-white mb-3">
@@ -159,7 +145,7 @@ export default function Index() {
 
               {/* Feature 3 */}
               <div className="bg-secondary border border-border rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
-                <div className="w-16 h-16 bg-gradient-to-br from-brand-blue to-brand-purple rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-16 h-16 bg-gradient-to-br from-brand-blue to-slate-600/40 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                   <FileText className="w-8 h-8 text-white drop-shadow" />
                 </div>
                 <h3 className="text-xl font-semibold text-white mb-3">
@@ -173,7 +159,7 @@ export default function Index() {
 
               {/* Feature 4 */}
               <div className="bg-secondary border border-border rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
-                <div className="w-16 h-16 bg-gradient-to-br from-brand-blue to-brand-purple rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-16 h-16 bg-gradient-to-br from-brand-blue to-slate-600/40 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                   <CheckCircle className="w-8 h-8 text-white drop-shadow" />
                 </div>
                 <h3 className="text-xl font-semibold text-white mb-3">
@@ -201,7 +187,7 @@ export default function Index() {
             </p>
 
             <Link to="/faq">
-              <Button className="bg-gradient-to-r from-brand-blue to-brand-purple hover:from-brand-blue/90 hover:to-brand-purple/90 text-white font-semibold px-8 py-3 transition-all duration-300 hover:scale-105 hover:shadow-lg">
+              <Button className="bg-gradient-to-r from-brand-blue to-slate-500 hover:from-brand-blue/90 hover:to-slate-500/90 text-white font-semibold px-8 py-3 transition-all duration-300 hover:scale-105 hover:shadow-lg">
                 <HelpCircle className="w-5 h-5 mr-2" />
                 View FAQ
                 <ArrowRight className="w-5 h-5 ml-2" />
@@ -225,7 +211,7 @@ export default function Index() {
             <div className="space-y-6">
               <div className="flex justify-center">
                 <Link to="/book-demo">
-                  <Button className="bg-gradient-to-r from-brand-blue to-brand-purple hover:from-brand-blue/90 hover:to-brand-purple/90 text-white font-semibold px-12 py-5 text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg h-[50px]">
+                  <Button className="bg-gradient-to-r from-brand-blue to-slate-500 hover:from-brand-blue/90 hover:to-slate-500/90 text-white font-semibold px-12 py-5 text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg h-[50px]">
                     <Calendar className="w-6 h-6 mr-3" />
                     Book a Demo
                     <ArrowRight className="w-6 h-6 ml-3" />
@@ -258,7 +244,7 @@ export default function Index() {
           <div className="max-w-6xl mx-auto">
             <div className="flex flex-col md:flex-row items-center justify-between">
               <div className="mb-6 md:mb-0">
-                <h3 className="text-2xl font-extrabold font-display bg-gradient-to-r from-brand-blue to-brand-purple bg-clip-text text-transparent">
+                <h3 className="text-2xl font-extrabold font-display bg-gradient-to-r from-brand-blue to-slate-400 bg-clip-text text-transparent">
                   SolAI
                 </h3>
                 <p className="text-gray-400 mt-2">
