@@ -240,7 +240,7 @@ export default function Index() {
                     <Mail className="w-4 h-4 text-[hsl(var(--brand-blue))]" />
                     <a
                       href="mailto:jtgeldart@solai-systems.com"
-                      className="hover:text-purple-400 transition-colors duration-300 font-medium text-lg"
+                      className="hover:text-[hsl(var(--brand-blue))] transition-colors duration-300 font-medium text-lg"
                     >
                       jtgeldart@solai-systems.com
                     </a>
