@@ -235,7 +235,7 @@ export default function Index() {
 
               <div className="flex flex-col items-center justify-center gap-3">
                 <span className="text-muted-foreground text-sm">or</span>
-                <div className="bg-gradient-to-br from-gray-800 to-gray-700 border border-gray-600 rounded-xl p-4 h-auto flex-grow-0">
+                <div className="bg-gradient-to-br from-secondary to-muted border border-border rounded-xl p-4 h-auto flex-grow-0">
                   <div className="flex items-center justify-center gap-2 text-sm text-gray-200">
                     <Mail className="w-4 h-4 text-purple-400" />
                     <a
