@@ -56,10 +56,8 @@ export default function Index() {
             </div>
 
             {/* Tagline below logo */}
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 animate-slide-up">
-              <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-purple-300 bg-clip-text text-transparent">
-                DAY ONE OF AI
-              </span>
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 animate-slide-up font-display tracking-wide">
+              <span className="text-metallic">DAY 1 OF AI</span>
             </h1>
 
             {/* Main Description */}
