@@ -258,7 +258,7 @@ export default function Index() {
           <div className="max-w-6xl mx-auto">
             <div className="flex flex-col md:flex-row items-center justify-between">
               <div className="mb-6 md:mb-0">
-                <h3 className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+                <h3 className="text-2xl font-extrabold font-display bg-gradient-to-r from-brand-blue to-brand-purple bg-clip-text text-transparent">
                   SolAI
                 </h3>
                 <p className="text-gray-400 mt-2">
