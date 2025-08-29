@@ -119,7 +119,7 @@
     position: relative;
     background:
       radial-gradient(1200px 700px at 20% 10%, hsl(var(--brand-blue)/0.18), transparent 60%),
-      radial-gradient(900px 600px at 85% 80%, hsl(var(--brand-purple)/0.18), transparent 60%),
+      radial-gradient(900px 600px at 85% 80%, rgba(148,163,184,0.16), transparent 60%),
       radial-gradient(1200px 800px at 50% 110%, rgba(0,0,0,0.6), transparent 70%),
       hsl(var(--background));
   }
