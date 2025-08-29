@@ -182,19 +182,19 @@ export default function BookDemo() {
 
   if (isBooked) {
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center">
+      <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="container mx-auto px-6">
           <div className="max-w-md mx-auto text-center">
-            <div className="bg-gradient-to-br from-gray-800 to-gray-700 border border-gray-600 rounded-2xl p-8">
-              <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-6">
+            <div className="bg-secondary border border-border rounded-2xl p-8">
+              <div className="w-16 h-16 bg-gradient-to-br from-brand-blue to-slate-500 rounded-full flex items-center justify-center mx-auto mb-6">
                 <CheckCircle className="w-8 h-8 text-white" />
               </div>
               <h1 className="text-2xl font-bold text-white mb-4">
                 Demo Booked!
               </h1>
-              <p className="text-gray-300 mb-6">
+              <p className="text-muted-foreground mb-6">
                 Your demo has been successfully scheduled for{" "}
-                <span className="text-purple-400 font-semibold">
+                <span className="text-[hsl(var(--brand-blue))] font-semibold">
                   {selectedDate?.toLocaleDateString("en-US", {
                     weekday: "long",
                     year: "numeric",
@@ -208,7 +208,7 @@ export default function BookDemo() {
                 We'll send you a calendar invite and meeting details shortly.
               </p>
               <Link to="/">
-                <Button className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white">
+                <Button className="bg-gradient-to-r from-brand-blue to-slate-500 hover:from-brand-blue/90 hover:to-slate-500/90 text-white">
                   <ArrowLeft className="w-4 h-4 mr-2" />
                   Back to Home
                 </Button>
@@ -221,13 +221,13 @@ export default function BookDemo() {
   }
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-background">
       <div className="container mx-auto px-6 py-12">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="mb-8">
             <Link to="/">
-              <Button className="mb-4 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white transition-all duration-300 hover:scale-105">
+              <Button className="mb-4 bg-gradient-to-r from-brand-blue to-slate-500 hover:from-brand-blue/90 hover:to-slate-500/90 text-white transition-all duration-300 hover:scale-105">
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Back to Home
               </Button>
@@ -235,7 +235,7 @@ export default function BookDemo() {
             <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Book a Demo
             </h1>
-            <p className="text-lg text-gray-300">
+            <p className="text-lg text-muted-foreground">
               Schedule a personalized demo to see how SolAI can transform your
               business workflows
             </p>
@@ -243,7 +243,7 @@ export default function BookDemo() {
 
           <div className="grid lg:grid-cols-2 gap-8">
             {/* Calendar Section */}
-            <Card className="bg-gray-800 border-gray-600">
+            <Card className="bg-secondary border-border">
               <CardHeader>
                 <CardTitle className="text-white flex items-center gap-2">
                   <Calendar className="w-5 h-5" />
@@ -257,7 +257,7 @@ export default function BookDemo() {
                     variant="outline"
                     size="sm"
                     onClick={goToPreviousMonth}
-                    className="border-gray-600 text-gray-300 hover:bg-gray-700"
+                    className="border-border text-muted-foreground hover:bg-muted"
                   >
                     ←
                   </Button>
@@ -268,7 +268,7 @@ export default function BookDemo() {
                     variant="outline"
                     size="sm"
                     onClick={goToNextMonth}
-                    className="border-gray-600 text-gray-300 hover:bg-gray-700"
+                    className="border-border text-muted-foreground hover:bg-muted"
                   >
                     →
                   </Button>
@@ -280,7 +280,7 @@ export default function BookDemo() {
                     (day) => (
                       <div
                         key={day}
-                        className="text-center text-sm font-medium text-gray-400 py-2"
+                        className="text-center text-sm font-medium text-muted-foreground py-2"
                       >
                         {day}
                       </div>
@@ -300,7 +300,7 @@ export default function BookDemo() {
                         disabled={dayData.isPast || dayData.slots.length === 0}
                         className={cn(
                           "p-2 text-sm rounded-lg transition-all duration-200",
-                          "hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-500",
+                          "hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[hsl(var(--brand-blue))]",
                           {
                             // Past dates
                             "text-gray-500 cursor-not-allowed": dayData.isPast,
@@ -308,7 +308,7 @@ export default function BookDemo() {
                             "bg-blue-600 text-white font-semibold":
                               dayData.isToday && !dayData.isPast,
                             // Selected date
-                            "bg-purple-600 text-white":
+                            "bg-[hsl(var(--brand-blue))] text-white":
                               selectedDate?.toDateString() ===
                               dayData.date.toDateString(),
                             // Available dates
@@ -353,14 +353,14 @@ export default function BookDemo() {
                               disabled={!slot.available}
                               className={cn(
                                 "p-3 text-sm rounded-lg border transition-all duration-200",
-                                "hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-500",
+                                "hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[hsl(var(--brand-blue))]",
                                 {
-                                  "bg-purple-600 text-white border-purple-600":
+                                  "bg-[hsl(var(--brand-blue))] text-white border-[hsl(var(--brand-blue))]":
                                     selectedTime?.hour === slot.hour,
-                                  "bg-gray-700 text-gray-300 border-gray-600 hover:bg-gray-600":
+                                  "bg-secondary text-foreground/90 border-border hover:bg-muted":
                                     slot.available &&
                                     selectedTime?.hour !== slot.hour,
-                                  "bg-gray-800 text-gray-500 border-gray-700 cursor-not-allowed":
+                                  "bg-secondary/60 text-muted-foreground border-border cursor-not-allowed":
                                     !slot.available,
                                 },
                               )}
@@ -375,7 +375,7 @@ export default function BookDemo() {
             </Card>
 
             {/* Booking Form */}
-            <Card className="bg-gray-800 border-gray-600">
+            <Card className="bg-secondary border-border">
               <CardHeader>
                 <CardTitle className="text-white flex items-center gap-2">
                   <User className="w-5 h-5" />
@@ -487,7 +487,7 @@ export default function BookDemo() {
                       !formData.name ||
                       !formData.email
                     }
-                    className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-semibold py-3 transition-all duration-300 hover:scale-105 disabled:hover:scale-100 disabled:opacity-50"
+                    className="w-full bg-gradient-to-r from-brand-blue to-slate-500 hover:from-brand-blue/90 hover:to-slate-500/90 text-white font-semibold py-3 transition-all duration-300 hover:scale-105 disabled:hover:scale-100 disabled:opacity-50"
                   >
                     Book Demo
                   </Button>
