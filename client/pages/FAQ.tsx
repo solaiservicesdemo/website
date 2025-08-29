@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import {
@@ -9,9 +8,6 @@ import {
 } from "@/components/ui/accordion";
 
 export default function FAQ() {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
