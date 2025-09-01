@@ -35,81 +35,84 @@ export default function Index() {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero Section */}
-      <section className="relative overflow-hidden hero-surface min-h-screen flex items-center">
-        <div className="logo-beam" />
+      {/* Logo Section */}
+      <div className="container mx-auto px-6">
+        <div className="max-w-4xl mx-auto">
+          <div className="mb-8 text-center relative">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets%2Fe7d7c92ddafd455fa21a20820d378b0b%2Fe07c084267434cfe8bd6ba2846044dce?format=webp&width=1200"
+              alt="SolAI Systems logo"
+              className="logo-blend mx-auto w-[min(88vw,700px)] h-auto select-none"
+              draggable={false}
+            />
+          </div>
 
-        <div className="container mx-auto px-6 py-20 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            {/* SOLAI Logo */}
-            <div className="mb-12 animate-fade-in">
-              <img
-                src="https://cdn.builder.io/api/v1/image/assets%2Fe7d7c92ddafd455fa21a20820d378b0b%2Fe07c084267434cfe8bd6ba2846044dce?format=webp&width=1200"
-                alt="SolAI Systems logo"
-                className="logo-blend mx-auto w-[min(88vw,700px)] h-auto select-none"
-                draggable={false}
+          {/* Main Description */}
+          <p className="text-xl md:text-2xl lg:text-3xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed animate-slide-up-delay text-center">
+            Tailor-Made Agentic AI to transform your&nbsp; Business
+          </p>
+        </div>
+      </div>
+
+      {/* Content Section */}
+      <div className="container mx-auto px-6 py-6 pb-20 relative z-10">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="animate-fade-in">
+          </div>
+
+          <div className="h-2" />
+
+          {/* Description */}
+          <p className="text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed animate-fade-in-delay">
+            SolAI create intelligent AI agents designed to handle the work
+            for you - seamlessly, tirelessly and with
+            precision.&nbsp;&nbsp;Our goal is to simplify business
+            operations, save time, and reduce costs by providing an
+            intelligent assistant that works seamlessly across your
+            tools.&nbsp;By empowering AI to act across your tools and
+            processes, we unlock a new way of running your business:
+            smoother operations, smarter decisions, and more time for what
+            truly matters.
+          </p>
+
+          {/* CTA Section */}
+          <div className="animate-fade-in-delay-2">
+            <form
+              onSubmit={handleSubmit}
+              className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto mb-8"
+            >
+              <Input
+                type="email"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="flex-1 h-12 text-lg bg-secondary/60 border-input placeholder:text-muted-foreground"
+                required
               />
-            </div>
-
-            <div className="h-2" />
-
-            {/* Main Description */}
-            <p className="text-xl md:text-2xl lg:text-3xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed animate-slide-up-delay">
-              Tailor-Made Agentic AI to transform your&nbsp; Business
-            </p>
-
-            {/* Description */}
-            <p className="text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed animate-fade-in-delay">
-              SolAI create intelligent AI agents designed to handle the work
-              for you - seamlessly, tirelessly and with
-              precision.&nbsp;&nbsp;Our goal is to simplify business
-              operations, save time, and reduce costs by providing an
-              intelligent assistant that works seamlessly across your
-              tools.&nbsp;By empowering AI to act across your tools and
-              processes, we unlock a new way of running your business:
-              smoother operations, smarter decisions, and more time for what
-              truly matters.
-            </p>
-
-            {/* CTA Section */}
-            <div className="animate-fade-in-delay-2">
-              <form
-                onSubmit={handleSubmit}
-                className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto mb-8"
+              <Button
+                type="submit"
+                className="h-12 px-8 bg-gradient-to-r from-brand-blue to-slate-500 hover:from-brand-blue/90 hover:to-slate-500/90 text-white font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                disabled={isSubmitted}
               >
-                <Input
-                  type="email"
-                  placeholder="Enter your email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="flex-1 h-12 text-lg bg-secondary/60 border-input placeholder:text-muted-foreground"
-                  required
-                />
-                <Button
-                  type="submit"
-                  className="h-12 px-8 bg-gradient-to-r from-brand-blue to-slate-500 hover:from-brand-blue/90 hover:to-slate-500/90 text-white font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg"
-                  disabled={isSubmitted}
-                >
-                  {isSubmitted ? (
-                    <>
-                      <CheckCircle className="w-5 h-5 mr-2" />
-                      Subscribed!
-                    </>
-                  ) : (
-                    <>
-                      Get Notified
-                      <ArrowRight className="w-5 h-5 ml-2" />
-                    </>
-                  )}
-                </Button>
-              </form>
-              <p className="text-sm text-gray-400">
-                Be the first to know when we launch
-              </p>
-            </div>
+                {isSubmitted ? (
+                  <>
+                    <CheckCircle className="w-5 h-5 mr-2" />
+                    Subscribed!
+                  </>
+                ) : (
+                  <>
+                    Get Notified
+                    <ArrowRight className="w-5 h-5 ml-2" />
+                  </>
+                )}
+              </Button>
+            </form>
+            <p className="text-sm text-gray-400">
+              Be the first to know when we launch
+            </p>
           </div>
         </div>
-      </section>
+      </div>
 
       {/* Features Section */}
       <section className="py-20 bg-[hsl(var(--background))]">
