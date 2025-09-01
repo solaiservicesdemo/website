@@ -118,9 +118,21 @@
   .hero-surface {
     position: relative;
     background:
-      radial-gradient(1200px 700px at 20% 10%, hsl(var(--brand-blue)/0.18), transparent 60%),
-      radial-gradient(900px 600px at 85% 80%, rgba(148,163,184,0.16), transparent 60%),
-      radial-gradient(1200px 800px at 50% 110%, rgba(0,0,0,0.6), transparent 70%),
+      radial-gradient(
+        1200px 700px at 20% 10%,
+        hsl(var(--brand-blue) / 0.18),
+        transparent 60%
+      ),
+      radial-gradient(
+        900px 600px at 85% 80%,
+        rgba(148, 163, 184, 0.16),
+        transparent 60%
+      ),
+      radial-gradient(
+        1200px 800px at 50% 110%,
+        rgba(0, 0, 0, 0.6),
+        transparent 70%
+      ),
       hsl(var(--background));
   }
   .hero-surface::after {
@@ -128,8 +140,11 @@
     position: absolute;
     inset: 0;
     pointer-events: none;
-    background:
-      radial-gradient(80% 60% at 50% 50%, rgba(255,255,255,0.05), rgba(255,255,255,0) 70%);
+    background: radial-gradient(
+      80% 60% at 50% 50%,
+      rgba(255, 255, 255, 0.05),
+      rgba(255, 255, 255, 0) 70%
+    );
     mix-blend-mode: overlay;
   }
 
@@ -137,18 +152,38 @@
   .logo-blend {
     mix-blend-mode: lighten;
     opacity: 0.98;
-    filter: saturate(1.05) contrast(1.08) drop-shadow(0 14px 40px rgba(56,189,248,0.22)) drop-shadow(0 3px 14px rgba(2,6,23,0.55));
-    -webkit-mask-image: radial-gradient(85% 85% at 50% 50%, #fff 65%, rgba(255,255,255,0.3) 85%, transparent 100%);
-    mask-image: radial-gradient(85% 85% at 50% 50%, #fff 65%, rgba(255,255,255,0.3) 85%, transparent 100%);
+    filter: saturate(1.05) contrast(1.08)
+      drop-shadow(0 14px 40px rgba(56, 189, 248, 0.22))
+      drop-shadow(0 3px 14px rgba(2, 6, 23, 0.55));
+    -webkit-mask-image: radial-gradient(
+      85% 85% at 50% 50%,
+      #fff 65%,
+      rgba(255, 255, 255, 0.3) 85%,
+      transparent 100%
+    );
+    mask-image: radial-gradient(
+      85% 85% at 50% 50%,
+      #fff 65%,
+      rgba(255, 255, 255, 0.3) 85%,
+      transparent 100%
+    );
   }
 
   /* Metallic text sheen echoing the logo finish */
   .text-metallic {
-    background-image: linear-gradient(180deg, #a9b3bd 0%, #e6eef7 35%, #9aa3ad 65%, #cfd6dd 100%);
+    background-image: linear-gradient(
+      180deg,
+      #a9b3bd 0%,
+      #e6eef7 35%,
+      #9aa3ad 65%,
+      #cfd6dd 100%
+    );
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    text-shadow: 0 1px 0 rgba(255,255,255,0.15), 0 6px 22px rgba(56,189,248,0.15);
+    text-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.15),
+      0 6px 22px rgba(56, 189, 248, 0.15);
   }
 
   /* Cyan beam behind the mark */
@@ -159,7 +194,12 @@
     height: 18vw;
     max-width: 720px;
     pointer-events: none;
-    background: linear-gradient(90deg, rgba(56,189,248,0.28), rgba(56,189,248,0.06) 70%, transparent);
+    background: linear-gradient(
+      90deg,
+      rgba(56, 189, 248, 0.28),
+      rgba(56, 189, 248, 0.06) 70%,
+      transparent
+    );
     filter: blur(30px);
     transform: rotate(-8deg);
   }
@@ -188,11 +228,23 @@
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes slideUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

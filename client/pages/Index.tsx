@@ -18,7 +18,6 @@ export default function Index() {
   const [email, setEmail] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (email) {
@@ -50,22 +49,19 @@ export default function Index() {
       {/* Content Section */}
       <div className="container mx-auto px-6 py-6 pb-20 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          <div>
-          </div>
+          <div></div>
 
           <div className="h-2" />
 
           {/* Description */}
           <p className="text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed">
-            SolAI create intelligent AI agents designed to handle the work
-            for you - seamlessly, tirelessly and with
-            precision.&nbsp;&nbsp;Our goal is to simplify business
-            operations, save time, and reduce costs by providing an
-            intelligent assistant that works seamlessly across your
-            tools.&nbsp;By empowering AI to act across your tools and
-            processes, we unlock a new way of running your business:
-            smoother operations, smarter decisions, and more time for what
-            truly matters.
+            SolAI create intelligent AI agents designed to handle the work for
+            you - seamlessly, tirelessly and with precision.&nbsp;&nbsp;Our goal
+            is to simplify business operations, save time, and reduce costs by
+            providing an intelligent assistant that works seamlessly across your
+            tools.&nbsp;By empowering AI to act across your tools and processes,
+            we unlock a new way of running your business: smoother operations,
+            smarter decisions, and more time for what truly matters.
           </p>
 
           {/* CTA Section */}
