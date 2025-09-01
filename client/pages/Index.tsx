@@ -39,7 +39,7 @@ export default function Index() {
               <img
                 src="https://cdn.builder.io/api/v1/image/assets%2Fe7d7c92ddafd455fa21a20820d378b0b%2Fe07c084267434cfe8bd6ba2846044dce?format=webp&width=1200"
                 alt="SolAI Systems logo"
-                className="logo-blend mx-auto w-[min(88vw,900px)] h-auto select-none"
+                className="logo-blend mx-auto w-[min(88vw,700px)] h-auto select-none"
                 draggable={false}
               />
             </div>
