@@ -136,10 +136,10 @@
   /* Make raster logo blend naturally into dark surface */
   .logo-blend {
     mix-blend-mode: lighten;
-    opacity: 0.96;
+    opacity: 0.98;
     filter: saturate(1.05) contrast(1.08) drop-shadow(0 14px 40px rgba(56,189,248,0.22)) drop-shadow(0 3px 14px rgba(2,6,23,0.55));
-    -webkit-mask-image: radial-gradient(75% 75% at 50% 50%, #fff 52%, transparent 95%);
-    mask-image: radial-gradient(75% 75% at 50% 50%, #fff 52%, transparent 95%);
+    -webkit-mask-image: radial-gradient(85% 85% at 50% 50%, #fff 65%, rgba(255,255,255,0.3) 85%, transparent 100%);
+    mask-image: radial-gradient(85% 85% at 50% 50%, #fff 65%, rgba(255,255,255,0.3) 85%, transparent 100%);
   }
 
   /* Metallic text sheen echoing the logo finish */

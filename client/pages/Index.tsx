@@ -48,16 +48,20 @@ export default function Index() {
 
             {/* Main Description */}
             <p className="text-xl md:text-2xl lg:text-3xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed animate-slide-up-delay">
-              AI-powered workflow automation for smarter businesses
+              Tailor-Made Agentic AI to transform your&nbsp; Business
             </p>
 
             {/* Description */}
             <p className="text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed animate-fade-in-delay">
-              SolAI is an upcoming AI-driven platform designed to help
-              businesses automate routine tasks like email, scheduling, and
-              document handling. Our goal is to simplify business operations,
-              save time, and reduce costs by providing an intelligent assistant
-              that works seamlessly across your tools.
+              SolAI create intelligent AI agents designed to handle the work
+              for you - seamlessly, tirelessly and with
+              precision.&nbsp;&nbsp;Our goal is to simplify business
+              operations, save time, and reduce costs by providing an
+              intelligent assistant that works seamlessly across your
+              tools.&nbsp;By empowering AI to act across your tools and
+              processes, we unlock a new way of running your business:
+              smoother operations, smarter decisions, and more time for what
+              truly matters.
             </p>
 
             {/* CTA Section */}
