@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
@@ -23,7 +23,6 @@ export default function Index() {
     e.preventDefault();
     if (email) {
       setIsSubmitted(true);
-      setTimeout(() => setIsSubmitted(false), 3000);
     }
   };
 
@@ -42,7 +41,7 @@ export default function Index() {
           </div>
 
           {/* Main Description */}
-          <p className="text-xl md:text-2xl lg:text-3xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed animate-slide-up-delay text-center">
+          <p className="text-xl md:text-2xl lg:text-3xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed text-center">
             Tailor-Made Agentic AI to transform your&nbsp; Business
           </p>
         </div>
@@ -51,13 +50,13 @@ export default function Index() {
       {/* Content Section */}
       <div className="container mx-auto px-6 py-6 pb-20 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="animate-fade-in">
+          <div>
           </div>
 
           <div className="h-2" />
 
           {/* Description */}
-          <p className="text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed animate-fade-in-delay">
+          <p className="text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed">
             SolAI create intelligent AI agents designed to handle the work
             for you - seamlessly, tirelessly and with
             precision.&nbsp;&nbsp;Our goal is to simplify business
@@ -70,7 +69,7 @@ export default function Index() {
           </p>
 
           {/* CTA Section */}
-          <div className="animate-fade-in-delay-2">
+          <div>
             <form
               onSubmit={handleSubmit}
               className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto mb-8"
