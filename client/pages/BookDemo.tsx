@@ -540,11 +540,19 @@ export default function BookDemo() {
                       !selectedDate ||
                       !selectedTime ||
                       !formData.name ||
-                      !formData.email
+                      !formData.email ||
+                      submitting
                     }
                     className="w-full bg-gradient-to-r from-brand-blue to-slate-500 hover:from-brand-blue/90 hover:to-slate-500/90 text-white font-semibold py-3 transition-all duration-300 hover:scale-105 disabled:hover:scale-100 disabled:opacity-50"
                   >
-                    Book Demo
+                    {submitting ? (
+                      <>
+                        <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                        Booking Demo...
+                      </>
+                    ) : (
+                      'Book Demo'
+                    )}
                   </Button>
                 </form>
               </CardContent>
