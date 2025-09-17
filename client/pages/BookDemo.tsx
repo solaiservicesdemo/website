@@ -133,16 +133,16 @@ export default function BookDemo() {
       );
       const isPast = date < today;
       const isToday = date.toDateString() === today.toDateString();
-      const slots = generateTimeSlots(date);
-      const hasAvailableSlots = slots.some((slot) => slot.available);
+      const dayOfWeek = date.getDay(); // 0 = Sunday, 6 = Saturday
+      const isWeekend = dayOfWeek === 0 || dayOfWeek === 6;
 
       days.push({
         date,
         dayName: date.toLocaleDateString("en-US", { weekday: "short" }),
         dayNumber: day,
         isToday,
-        isPast,
-        slots: isPast ? [] : slots,
+        isPast: isPast || isWeekend, // Treat weekends as unavailable
+        slots: [], // Slots will be fetched when date is selected
       });
     }
 
