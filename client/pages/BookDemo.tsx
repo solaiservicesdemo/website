@@ -339,22 +339,16 @@ export default function BookDemo() {
                     ),
                   )}
                   {calendarDays.map((dayData, index) => {
-                    const hasAvailableSlots = dayData.slots.some(
-                      (slot) => slot.available,
-                    );
-                    const allSlotsUnavailable =
-                      dayData.slots.length > 0 && !hasAvailableSlots;
-
                     return (
                       <button
                         key={index}
                         onClick={() => handleDateSelect(dayData)}
-                        disabled={dayData.isPast || dayData.slots.length === 0}
+                        disabled={dayData.isPast}
                         className={cn(
                           "p-2 text-sm rounded-lg transition-all duration-200",
                           "hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[hsl(var(--brand-blue))]",
                           {
-                            // Past dates
+                            // Past dates and weekends
                             "text-gray-500 cursor-not-allowed": dayData.isPast,
                             // Today
                             "bg-blue-600 text-white font-semibold":
@@ -366,12 +360,8 @@ export default function BookDemo() {
                             // Available dates
                             "text-gray-300 hover:bg-gray-700 border border-gray-600":
                               !dayData.isPast &&
-                              hasAvailableSlots &&
                               selectedDate?.toDateString() !==
                                 dayData.date.toDateString(),
-                            // All slots unavailable
-                            "text-gray-500 bg-gray-700/50 cursor-not-allowed":
-                              allSlotsUnavailable,
                             // Days from previous/next month
                             "text-gray-600": dayData.dayName === "",
                           },
