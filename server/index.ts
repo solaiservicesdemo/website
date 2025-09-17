@@ -21,5 +21,9 @@ export function createServer() {
 
   app.get("/api/demo", handleDemo);
 
+  // Booking API routes
+  app.get("/api/available-slots", getAvailableSlots);
+  app.post("/api/book-demo", bookDemo);
+
   return app;
 }
