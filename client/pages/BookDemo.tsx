@@ -171,6 +171,8 @@ export default function BookDemo() {
     );
     setSelectedDate(null);
     setSelectedTime(null);
+    setError(null);
+    setAvailableSlots([]);
   };
 
   const goToNextMonth = () => {
@@ -179,6 +181,8 @@ export default function BookDemo() {
     );
     setSelectedDate(null);
     setSelectedTime(null);
+    setError(null);
+    setAvailableSlots([]);
   };
 
   const handleDateSelect = (dayData: DayData) => {
