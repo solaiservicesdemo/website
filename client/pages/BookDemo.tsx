@@ -46,6 +46,10 @@ export default function BookDemo() {
     message: "",
   });
   const [isBooked, setIsBooked] = useState(false);
+  const [availableSlots, setAvailableSlots] = useState<number[]>([]);
+  const [loadingSlots, setLoadingSlots] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   // Generate time slots from 11am to 4pm
   const generateTimeSlots = (date: Date): TimeSlot[] => {
