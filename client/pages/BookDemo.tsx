@@ -379,38 +379,46 @@ export default function BookDemo() {
                     <h4 className="text-white font-medium mb-3 flex items-center gap-2">
                       <Clock className="w-4 h-4" />
                       Available Times
+                      {loadingSlots && <Loader2 className="w-4 h-4 animate-spin" />}
                     </h4>
-                    <div className="grid grid-cols-2 gap-2">
-                      {selectedDate &&
-                        calendarDays
-                          .find(
-                            (day) =>
-                              day.date.toDateString() ===
-                              selectedDate.toDateString(),
-                          )
-                          ?.slots.map((slot) => (
-                            <button
-                              key={slot.hour}
-                              onClick={() => handleTimeSelect(slot)}
-                              disabled={!slot.available}
-                              className={cn(
-                                "p-3 text-sm rounded-lg border transition-all duration-200",
-                                "hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[hsl(var(--brand-blue))]",
-                                {
-                                  "bg-[hsl(var(--brand-blue))] text-white border-[hsl(var(--brand-blue))]":
-                                    selectedTime?.hour === slot.hour,
-                                  "bg-secondary text-foreground/90 border-border hover:bg-muted":
-                                    slot.available &&
-                                    selectedTime?.hour !== slot.hour,
-                                  "bg-secondary/60 text-muted-foreground border-border cursor-not-allowed":
-                                    !slot.available,
-                                },
-                              )}
-                            >
-                              {slot.label}
-                            </button>
-                          ))}
-                    </div>
+
+                    {error && (
+                      <div className="mb-3 p-3 bg-red-500/10 border border-red-500/20 rounded-lg text-red-400 text-sm">
+                        {error}
+                      </div>
+                    )}
+
+                    {loadingSlots ? (
+                      <div className="flex items-center justify-center py-8">
+                        <Loader2 className="w-6 h-6 animate-spin text-gray-400" />
+                        <span className="ml-2 text-gray-400">Loading available times...</span>
+                      </div>
+                    ) : (
+                      <div className="grid grid-cols-2 gap-2">
+                        {generateTimeSlots(availableSlots).map((slot) => (
+                          <button
+                            key={slot.hour}
+                            onClick={() => handleTimeSelect(slot)}
+                            disabled={!slot.available}
+                            className={cn(
+                              "p-3 text-sm rounded-lg border transition-all duration-200",
+                              "hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[hsl(var(--brand-blue))]",
+                              {
+                                "bg-[hsl(var(--brand-blue))] text-white border-[hsl(var(--brand-blue))]":
+                                  selectedTime?.hour === slot.hour,
+                                "bg-secondary text-foreground/90 border-border hover:bg-muted":
+                                  slot.available &&
+                                  selectedTime?.hour !== slot.hour,
+                                "bg-secondary/60 text-muted-foreground border-border cursor-not-allowed":
+                                  !slot.available,
+                              },
+                            )}
+                          >
+                            {slot.label}
+                          </button>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 )}
               </CardContent>
