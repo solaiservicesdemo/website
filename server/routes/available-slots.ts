@@ -62,8 +62,11 @@ export const getAvailableSlots: RequestHandler = async (req, res) => {
       existingAppointments.forEach(appointment => {
         const appointmentDate = new Date(appointment.starts_at);
         // Convert UTC to Pacific time to get the actual hour
-        const pacificHour = appointmentDate.getUTCHours() - 8; // Pacific is UTC-8
-        bookedHours.add(pacificHour);
+        // The appointment was stored as Pacific hour + 8, so we subtract 8 to get back to Pacific
+        const pacificHour = appointmentDate.getUTCHours() - 8;
+        if (pacificHour >= 10 && pacificHour <= 16) {
+          bookedHours.add(pacificHour);
+        }
       });
     }
 
