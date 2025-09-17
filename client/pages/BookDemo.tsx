@@ -172,9 +172,10 @@ export default function BookDemo() {
   };
 
   const handleDateSelect = (dayData: DayData) => {
-    if (dayData.isPast || dayData.slots.length === 0) return;
+    if (dayData.isPast) return;
     setSelectedDate(dayData.date);
     setSelectedTime(null);
+    setError(null);
   };
 
   const handleTimeSelect = (slot: TimeSlot) => {
