@@ -183,10 +183,48 @@ export default function BookDemo() {
     setSelectedTime(slot);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (selectedDate && selectedTime && formData.name && formData.email) {
+
+    if (!selectedDate || !selectedTime || !formData.name || !formData.email) {
+      setError('Please fill in all required fields and select a date and time.');
+      return;
+    }
+
+    try {
+      setSubmitting(true);
+      setError(null);
+
+      const bookingData: BookDemoRequest = {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone || undefined,
+        company: formData.company || undefined,
+        message: formData.message || undefined,
+        selectedDate: selectedDate.toISOString().split('T')[0], // YYYY-MM-DD format
+        selectedTime: selectedTime.hour,
+      };
+
+      const response = await fetch('/api/book-demo', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(bookingData),
+      });
+
+      const result: BookDemoResponse = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || 'Failed to book demo');
+      }
+
       setIsBooked(true);
+    } catch (error) {
+      console.error('Error booking demo:', error);
+      setError(error instanceof Error ? error.message : 'Failed to book demo. Please try again.');
+    } finally {
+      setSubmitting(false);
     }
   };
 
