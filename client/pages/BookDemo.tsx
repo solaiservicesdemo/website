@@ -411,6 +411,12 @@ export default function BookDemo() {
                         <Loader2 className="w-6 h-6 animate-spin text-gray-400" />
                         <span className="ml-2 text-gray-400">Loading available times...</span>
                       </div>
+                    ) : availableSlots.length === 0 ? (
+                      <div className="text-center py-8 text-gray-400">
+                        <Clock className="w-8 h-8 mx-auto mb-2 opacity-50" />
+                        <p>No available time slots for this date.</p>
+                        <p className="text-sm mt-1">Please select another date.</p>
+                      </div>
                     ) : (
                       <div className="grid grid-cols-2 gap-2">
                         {generateTimeSlots(availableSlots).map((slot) => (
