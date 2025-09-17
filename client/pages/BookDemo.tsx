@@ -52,7 +52,7 @@ export default function BookDemo() {
   const [error, setError] = useState<string | null>(null);
 
   // Fetch available time slots from API
-  const fetchAvailableSlots = async (date: Date) => {
+  const fetchAvailableSlots = async (date: Date, retryCount = 0) => {
     try {
       setLoadingSlots(true);
       setError(null);
@@ -61,14 +61,24 @@ export default function BookDemo() {
       const response = await fetch(`/api/available-slots?date=${dateString}`);
 
       if (!response.ok) {
-        throw new Error('Failed to fetch available slots');
+        const errorText = await response.text();
+        throw new Error(`Failed to fetch available slots: ${errorText}`);
       }
 
       const data: AvailableSlotsResponse = await response.json();
       setAvailableSlots(data.availableSlots);
     } catch (error) {
       console.error('Error fetching available slots:', error);
-      setError('Failed to load available time slots. Please try again.');
+
+      // Retry up to 2 times on failure
+      if (retryCount < 2) {
+        setTimeout(() => {
+          fetchAvailableSlots(date, retryCount + 1);
+        }, 1000 * (retryCount + 1)); // Exponential backoff
+        return;
+      }
+
+      setError('Failed to load available time slots. Please try selecting the date again.');
       setAvailableSlots([]);
     } finally {
       setLoadingSlots(false);
