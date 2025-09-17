@@ -37,8 +37,11 @@ export const getAvailableSlots: RequestHandler = async (req, res) => {
     const allSlots = [10, 11, 12, 13, 14, 15, 16];
     
     // Query existing appointments for the date
-    const startOfDay = `${date}T17:00:00.000Z`; // 10 AM Pacific = 17:00 UTC
-    const endOfDay = `${date}T24:00:00.000Z`;   // 5 PM Pacific = 24:00 UTC (next day)
+    // Pacific Time is UTC-8 (or UTC-7 during DST), so 10 AM Pacific = 18:00 UTC (or 17:00 UTC during DST)
+    // For simplicity, we'll use UTC-8 conversion: 10 AM Pacific = 18:00 UTC, 5 PM Pacific = 01:00 UTC next day
+    const startOfDay = `${date}T18:00:00.000Z`; // 10 AM Pacific = 18:00 UTC
+    const endOfDay = new Date(`${date}T18:00:00.000Z`);
+    endOfDay.setHours(endOfDay.getHours() + 7); // Add 7 hours for 10 AM to 5 PM range
     
     const { data: existingAppointments, error } = await supabase
       .from('appointments')
