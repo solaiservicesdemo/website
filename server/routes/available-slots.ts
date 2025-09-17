@@ -49,7 +49,7 @@ export const getAvailableSlots: RequestHandler = async (req, res) => {
       .eq('resource', 'default')
       .in('status', ['pending', 'confirmed'])
       .gte('starts_at', startOfDay)
-      .lt('starts_at', endOfDay);
+      .lt('starts_at', endOfDay.toISOString());
 
     if (error) {
       console.error('Supabase error:', error);
