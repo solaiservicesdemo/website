@@ -394,7 +394,15 @@ export default function BookDemo() {
 
                     {error && (
                       <div className="mb-3 p-3 bg-red-500/10 border border-red-500/20 rounded-lg text-red-400 text-sm">
-                        {error}
+                        <p className="mb-2">{error}</p>
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => selectedDate && fetchAvailableSlots(selectedDate)}
+                          className="text-red-400 border-red-400 hover:bg-red-500/10"
+                        >
+                          Try Again
+                        </Button>
                       </div>
                     )}
 
