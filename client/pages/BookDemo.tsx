@@ -51,39 +51,46 @@ export default function BookDemo() {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  // Generate time slots from 11am to 4pm
-  const generateTimeSlots = (date: Date): TimeSlot[] => {
-    const slots: TimeSlot[] = [];
-    for (let hour = 11; hour <= 16; hour++) {
-      // Create deterministic availability based on date and hour to prevent switching
-      const dateString = date.toDateString();
-      const hashCode = (str: string) => {
-        let hash = 0;
-        for (let i = 0; i < str.length; i++) {
-          const char = str.charCodeAt(i);
-          hash = (hash << 5) - hash + char;
-          hash = hash & hash; // Convert to 32bit integer
-        }
-        return hash;
-      };
+  // Fetch available time slots from API
+  const fetchAvailableSlots = async (date: Date) => {
+    try {
+      setLoadingSlots(true);
+      setError(null);
 
-      const seed = Math.abs(hashCode(dateString + hour.toString()));
-      const available = seed % 10 > 1; // 80% chance of being available
+      const dateString = date.toISOString().split('T')[0]; // YYYY-MM-DD format
+      const response = await fetch(`/api/available-slots?date=${dateString}`);
 
-      const slot: TimeSlot = {
-        hour,
-        label:
-          hour === 12
-            ? "12:00 PM"
-            : hour > 12
-              ? `${hour - 12}:00 PM`
-              : `${hour}:00 AM`,
-        available,
-      };
-      slots.push(slot);
+      if (!response.ok) {
+        throw new Error('Failed to fetch available slots');
+      }
+
+      const data: AvailableSlotsResponse = await response.json();
+      setAvailableSlots(data.availableSlots);
+    } catch (error) {
+      console.error('Error fetching available slots:', error);
+      setError('Failed to load available time slots. Please try again.');
+      setAvailableSlots([]);
+    } finally {
+      setLoadingSlots(false);
     }
-    return slots;
   };
+
+  // Generate time slots based on available hours from API
+  const generateTimeSlots = (availableHours: number[]): TimeSlot[] => {
+    const allHours = [10, 11, 12, 13, 14, 15, 16]; // 10 AM to 4 PM
+    return allHours.map(hour => ({
+      hour,
+      label: hour === 12 ? "12:00 PM" : hour > 12 ? `${hour - 12}:00 PM` : `${hour}:00 AM`,
+      available: availableHours.includes(hour)
+    }));
+  };
+
+  // Fetch available slots when a date is selected
+  useEffect(() => {
+    if (selectedDate) {
+      fetchAvailableSlots(selectedDate);
+    }
+  }, [selectedDate]);
 
   // Generate calendar days for current month
   const generateCalendarDays = (): DayData[] => {
