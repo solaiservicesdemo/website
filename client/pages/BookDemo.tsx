@@ -227,7 +227,15 @@ export default function BookDemo() {
         body: JSON.stringify(bookingData),
       });
 
-      const result: BookDemoResponse = await response.json();
+      // Read response body safely (some environments may consume the stream)
+      const text = await response.text();
+      let result: BookDemoResponse;
+      try {
+        result = text ? JSON.parse(text) : { success: response.ok, message: '' } as BookDemoResponse;
+      } catch (err) {
+        // Not JSON, fallback
+        result = { success: response.ok, message: text } as BookDemoResponse;
+      }
 
       if (!response.ok || !result.success) {
         throw new Error(result.message || 'Failed to book demo');
