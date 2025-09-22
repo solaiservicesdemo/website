@@ -17,7 +17,11 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
-import { AvailableSlotsResponse, BookDemoRequest, BookDemoResponse } from "@shared/api";
+import {
+  AvailableSlotsResponse,
+  BookDemoRequest,
+  BookDemoResponse,
+} from "@shared/api";
 
 interface TimeSlot {
   hour: number;
@@ -57,7 +61,7 @@ export default function BookDemo() {
       setLoadingSlots(true);
       setError(null);
 
-      const dateString = date.toISOString().split('T')[0]; // YYYY-MM-DD format
+      const dateString = date.toISOString().split("T")[0]; // YYYY-MM-DD format
       const response = await fetch(`/api/available-slots?date=${dateString}`);
 
       if (!response.ok) {
@@ -68,17 +72,22 @@ export default function BookDemo() {
       const data: AvailableSlotsResponse = await response.json();
       setAvailableSlots(data.availableSlots);
     } catch (error) {
-      console.error('Error fetching available slots:', error);
+      console.error("Error fetching available slots:", error);
 
       // Retry up to 2 times on failure
       if (retryCount < 2) {
-        setTimeout(() => {
-          fetchAvailableSlots(date, retryCount + 1);
-        }, 1000 * (retryCount + 1)); // Exponential backoff
+        setTimeout(
+          () => {
+            fetchAvailableSlots(date, retryCount + 1);
+          },
+          1000 * (retryCount + 1),
+        ); // Exponential backoff
         return;
       }
 
-      setError('Failed to load available time slots. Please try selecting the date again.');
+      setError(
+        "Failed to load available time slots. Please try selecting the date again.",
+      );
       setAvailableSlots([]);
     } finally {
       setLoadingSlots(false);
@@ -88,10 +97,15 @@ export default function BookDemo() {
   // Generate time slots based on available hours from API
   const generateTimeSlots = (availableHours: number[]): TimeSlot[] => {
     const allHours = [10, 11, 12, 13, 14, 15, 16]; // 10 AM to 4 PM
-    return allHours.map(hour => ({
+    return allHours.map((hour) => ({
       hour,
-      label: hour === 12 ? "12:00 PM" : hour > 12 ? `${hour - 12}:00 PM` : `${hour}:00 AM`,
-      available: availableHours.includes(hour)
+      label:
+        hour === 12
+          ? "12:00 PM"
+          : hour > 12
+            ? `${hour - 12}:00 PM`
+            : `${hour}:00 AM`,
+      available: availableHours.includes(hour),
     }));
   };
 
@@ -201,7 +215,9 @@ export default function BookDemo() {
     e.preventDefault();
 
     if (!selectedDate || !selectedTime || !formData.name || !formData.email) {
-      setError('Please fill in all required fields and select a date and time.');
+      setError(
+        "Please fill in all required fields and select a date and time.",
+      );
       return;
     }
 
@@ -215,14 +231,14 @@ export default function BookDemo() {
         phone: formData.phone || undefined,
         company: formData.company || undefined,
         message: formData.message || undefined,
-        selectedDate: selectedDate.toISOString().split('T')[0], // YYYY-MM-DD format
+        selectedDate: selectedDate.toISOString().split("T")[0], // YYYY-MM-DD format
         selectedTime: selectedTime.hour,
       };
 
-      const response = await fetch('/api/book-demo', {
-        method: 'POST',
+      const response = await fetch("/api/book-demo", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(bookingData),
       });
@@ -232,25 +248,34 @@ export default function BookDemo() {
       try {
         const cloned = response.clone();
         const text = await cloned.text();
-        result = text ? JSON.parse(text) : { success: response.ok, message: '' } as BookDemoResponse;
+        result = text
+          ? JSON.parse(text)
+          : ({ success: response.ok, message: "" } as BookDemoResponse);
       } catch (err) {
         // If parsing fails, try to fallback to a minimal object
         try {
           const fallback = await response.text();
-          result = { success: response.ok, message: fallback } as BookDemoResponse;
+          result = {
+            success: response.ok,
+            message: fallback,
+          } as BookDemoResponse;
         } catch (e) {
-          result = { success: response.ok, message: '' } as BookDemoResponse;
+          result = { success: response.ok, message: "" } as BookDemoResponse;
         }
       }
 
       if (!response.ok || !result.success) {
-        throw new Error(result.message || 'Failed to book demo');
+        throw new Error(result.message || "Failed to book demo");
       }
 
       setIsBooked(true);
     } catch (error) {
-      console.error('Error booking demo:', error);
-      setError(error instanceof Error ? error.message : 'Failed to book demo. Please try again.');
+      console.error("Error booking demo:", error);
+      setError(
+        error instanceof Error
+          ? error.message
+          : "Failed to book demo. Please try again.",
+      );
     } finally {
       setSubmitting(false);
     }
@@ -407,7 +432,9 @@ export default function BookDemo() {
                     <h4 className="text-white font-medium mb-3 flex items-center gap-2">
                       <Clock className="w-4 h-4" />
                       Available Times
-                      {loadingSlots && <Loader2 className="w-4 h-4 animate-spin" />}
+                      {loadingSlots && (
+                        <Loader2 className="w-4 h-4 animate-spin" />
+                      )}
                     </h4>
 
                     {error && (
@@ -416,7 +443,9 @@ export default function BookDemo() {
                         <Button
                           variant="outline"
                           size="sm"
-                          onClick={() => selectedDate && fetchAvailableSlots(selectedDate)}
+                          onClick={() =>
+                            selectedDate && fetchAvailableSlots(selectedDate)
+                          }
                           className="text-red-400 border-red-400 hover:bg-red-500/10"
                         >
                           Try Again
@@ -427,13 +456,17 @@ export default function BookDemo() {
                     {loadingSlots ? (
                       <div className="flex items-center justify-center py-8">
                         <Loader2 className="w-6 h-6 animate-spin text-gray-400" />
-                        <span className="ml-2 text-gray-400">Loading available times...</span>
+                        <span className="ml-2 text-gray-400">
+                          Loading available times...
+                        </span>
                       </div>
                     ) : availableSlots.length === 0 ? (
                       <div className="text-center py-8 text-gray-400">
                         <Clock className="w-8 h-8 mx-auto mb-2 opacity-50" />
                         <p>No available time slots for this date.</p>
-                        <p className="text-sm mt-1">Please select another date.</p>
+                        <p className="text-sm mt-1">
+                          Please select another date.
+                        </p>
                       </div>
                     ) : (
                       <div className="grid grid-cols-2 gap-2">
@@ -593,7 +626,7 @@ export default function BookDemo() {
                         Booking Demo...
                       </>
                     ) : (
-                      'Book Demo'
+                      "Book Demo"
                     )}
                   </Button>
                 </form>
