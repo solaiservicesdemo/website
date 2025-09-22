@@ -227,14 +227,20 @@ export default function BookDemo() {
         body: JSON.stringify(bookingData),
       });
 
-      // Read response body safely (some environments may consume the stream)
-      const text = await response.text();
+      // Read response body safely using a cloned response to avoid "body stream already read"
       let result: BookDemoResponse;
       try {
+        const cloned = response.clone();
+        const text = await cloned.text();
         result = text ? JSON.parse(text) : { success: response.ok, message: '' } as BookDemoResponse;
       } catch (err) {
-        // Not JSON, fallback
-        result = { success: response.ok, message: text } as BookDemoResponse;
+        // If parsing fails, try to fallback to a minimal object
+        try {
+          const fallback = await response.text();
+          result = { success: response.ok, message: fallback } as BookDemoResponse;
+        } catch (e) {
+          result = { success: response.ok, message: '' } as BookDemoResponse;
+        }
       }
 
       if (!response.ok || !result.success) {
