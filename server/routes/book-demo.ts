@@ -1,6 +1,6 @@
 import { RequestHandler } from "express";
-import { supabase } from "@shared/supabase";
-import { BookDemoRequest, BookDemoResponse } from "@shared/api";
+import { supabase } from "../../shared/supabase";
+import { BookDemoRequest, BookDemoResponse } from "../../shared/api";
 
 export const bookDemo: RequestHandler = async (req, res) => {
   try {
