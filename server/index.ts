@@ -2,6 +2,8 @@ import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import { handleDemo } from "./routes/demo";
+import { getAvailableSlots } from "./routes/available-slots";
+import { bookDemo } from "./routes/book-demo";
 
 export function createServer() {
   const app = express();
@@ -18,6 +20,10 @@ export function createServer() {
   });
 
   app.get("/api/demo", handleDemo);
+
+  // Booking API routes
+  app.get("/api/available-slots", getAvailableSlots);
+  app.post("/api/book-demo", bookDemo);
 
   return app;
 }

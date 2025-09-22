@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -13,9 +13,15 @@ import {
   Phone,
   Building,
   CheckCircle,
+  Loader2,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
+import {
+  AvailableSlotsResponse,
+  BookDemoRequest,
+  BookDemoResponse,
+} from "@shared/api";
 
 interface TimeSlot {
   hour: number;
@@ -44,40 +50,71 @@ export default function BookDemo() {
     message: "",
   });
   const [isBooked, setIsBooked] = useState(false);
+  const [availableSlots, setAvailableSlots] = useState<number[]>([]);
+  const [loadingSlots, setLoadingSlots] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  // Generate time slots from 11am to 4pm
-  const generateTimeSlots = (date: Date): TimeSlot[] => {
-    const slots: TimeSlot[] = [];
-    for (let hour = 11; hour <= 16; hour++) {
-      // Create deterministic availability based on date and hour to prevent switching
-      const dateString = date.toDateString();
-      const hashCode = (str: string) => {
-        let hash = 0;
-        for (let i = 0; i < str.length; i++) {
-          const char = str.charCodeAt(i);
-          hash = (hash << 5) - hash + char;
-          hash = hash & hash; // Convert to 32bit integer
-        }
-        return hash;
-      };
+  // Fetch available time slots from API
+  const fetchAvailableSlots = async (date: Date, retryCount = 0) => {
+    try {
+      setLoadingSlots(true);
+      setError(null);
 
-      const seed = Math.abs(hashCode(dateString + hour.toString()));
-      const available = seed % 10 > 1; // 80% chance of being available
+      const dateString = date.toISOString().split("T")[0]; // YYYY-MM-DD format
+      const response = await fetch(`/api/available-slots?date=${dateString}`);
 
-      const slot: TimeSlot = {
-        hour,
-        label:
-          hour === 12
-            ? "12:00 PM"
-            : hour > 12
-              ? `${hour - 12}:00 PM`
-              : `${hour}:00 AM`,
-        available,
-      };
-      slots.push(slot);
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(`Failed to fetch available slots: ${errorText}`);
+      }
+
+      const data: AvailableSlotsResponse = await response.json();
+      setAvailableSlots(data.availableSlots);
+    } catch (error) {
+      console.error("Error fetching available slots:", error);
+
+      // Retry up to 2 times on failure
+      if (retryCount < 2) {
+        setTimeout(
+          () => {
+            fetchAvailableSlots(date, retryCount + 1);
+          },
+          1000 * (retryCount + 1),
+        ); // Exponential backoff
+        return;
+      }
+
+      setError(
+        "Failed to load available time slots. Please try selecting the date again.",
+      );
+      setAvailableSlots([]);
+    } finally {
+      setLoadingSlots(false);
     }
-    return slots;
   };
+
+  // Generate time slots based on available hours from API
+  const generateTimeSlots = (availableHours: number[]): TimeSlot[] => {
+    const allHours = [10, 11, 12, 13, 14, 15, 16]; // 10 AM to 4 PM
+    return allHours.map((hour) => ({
+      hour,
+      label:
+        hour === 12
+          ? "12:00 PM"
+          : hour > 12
+            ? `${hour - 12}:00 PM`
+            : `${hour}:00 AM`,
+      available: availableHours.includes(hour),
+    }));
+  };
+
+  // Fetch available slots when a date is selected
+  useEffect(() => {
+    if (selectedDate) {
+      fetchAvailableSlots(selectedDate);
+    }
+  }, [selectedDate]);
 
   // Generate calendar days for current month
   const generateCalendarDays = (): DayData[] => {
@@ -120,16 +157,16 @@ export default function BookDemo() {
       );
       const isPast = date < today;
       const isToday = date.toDateString() === today.toDateString();
-      const slots = generateTimeSlots(date);
-      const hasAvailableSlots = slots.some((slot) => slot.available);
+      const dayOfWeek = date.getDay(); // 0 = Sunday, 6 = Saturday
+      const isWeekend = dayOfWeek === 0 || dayOfWeek === 6;
 
       days.push({
         date,
         dayName: date.toLocaleDateString("en-US", { weekday: "short" }),
         dayNumber: day,
         isToday,
-        isPast,
-        slots: isPast ? [] : slots,
+        isPast: isPast || isWeekend, // Treat weekends as unavailable
+        slots: [], // Slots will be fetched when date is selected
       });
     }
 
@@ -148,6 +185,8 @@ export default function BookDemo() {
     );
     setSelectedDate(null);
     setSelectedTime(null);
+    setError(null);
+    setAvailableSlots([]);
   };
 
   const goToNextMonth = () => {
@@ -156,12 +195,15 @@ export default function BookDemo() {
     );
     setSelectedDate(null);
     setSelectedTime(null);
+    setError(null);
+    setAvailableSlots([]);
   };
 
   const handleDateSelect = (dayData: DayData) => {
-    if (dayData.isPast || dayData.slots.length === 0) return;
+    if (dayData.isPast) return;
     setSelectedDate(dayData.date);
     setSelectedTime(null);
+    setError(null);
   };
 
   const handleTimeSelect = (slot: TimeSlot) => {
@@ -169,10 +211,73 @@ export default function BookDemo() {
     setSelectedTime(slot);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (selectedDate && selectedTime && formData.name && formData.email) {
+
+    if (!selectedDate || !selectedTime || !formData.name || !formData.email) {
+      setError(
+        "Please fill in all required fields and select a date and time.",
+      );
+      return;
+    }
+
+    try {
+      setSubmitting(true);
+      setError(null);
+
+      const bookingData: BookDemoRequest = {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone || undefined,
+        company: formData.company || undefined,
+        message: formData.message || undefined,
+        selectedDate: selectedDate.toISOString().split("T")[0], // YYYY-MM-DD format
+        selectedTime: selectedTime.hour,
+      };
+
+      const response = await fetch("/api/book-demo", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(bookingData),
+      });
+
+      // Read response body safely using a cloned response to avoid "body stream already read"
+      let result: BookDemoResponse;
+      try {
+        const cloned = response.clone();
+        const text = await cloned.text();
+        result = text
+          ? JSON.parse(text)
+          : ({ success: response.ok, message: "" } as BookDemoResponse);
+      } catch (err) {
+        // If parsing fails, try to fallback to a minimal object
+        try {
+          const fallback = await response.text();
+          result = {
+            success: response.ok,
+            message: fallback,
+          } as BookDemoResponse;
+        } catch (e) {
+          result = { success: response.ok, message: "" } as BookDemoResponse;
+        }
+      }
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || "Failed to book demo");
+      }
+
       setIsBooked(true);
+    } catch (error) {
+      console.error("Error booking demo:", error);
+      setError(
+        error instanceof Error
+          ? error.message
+          : "Failed to book demo. Please try again.",
+      );
+    } finally {
+      setSubmitting(false);
     }
   };
 
@@ -287,22 +392,16 @@ export default function BookDemo() {
                     ),
                   )}
                   {calendarDays.map((dayData, index) => {
-                    const hasAvailableSlots = dayData.slots.some(
-                      (slot) => slot.available,
-                    );
-                    const allSlotsUnavailable =
-                      dayData.slots.length > 0 && !hasAvailableSlots;
-
                     return (
                       <button
                         key={index}
                         onClick={() => handleDateSelect(dayData)}
-                        disabled={dayData.isPast || dayData.slots.length === 0}
+                        disabled={dayData.isPast}
                         className={cn(
                           "p-2 text-sm rounded-lg transition-all duration-200",
                           "hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[hsl(var(--brand-blue))]",
                           {
-                            // Past dates
+                            // Past dates and weekends
                             "text-gray-500 cursor-not-allowed": dayData.isPast,
                             // Today
                             "bg-blue-600 text-white font-semibold":
@@ -314,12 +413,8 @@ export default function BookDemo() {
                             // Available dates
                             "text-gray-300 hover:bg-gray-700 border border-gray-600":
                               !dayData.isPast &&
-                              hasAvailableSlots &&
                               selectedDate?.toDateString() !==
                                 dayData.date.toDateString(),
-                            // All slots unavailable
-                            "text-gray-500 bg-gray-700/50 cursor-not-allowed":
-                              allSlotsUnavailable,
                             // Days from previous/next month
                             "text-gray-600": dayData.dayName === "",
                           },
@@ -337,38 +432,68 @@ export default function BookDemo() {
                     <h4 className="text-white font-medium mb-3 flex items-center gap-2">
                       <Clock className="w-4 h-4" />
                       Available Times
+                      {loadingSlots && (
+                        <Loader2 className="w-4 h-4 animate-spin" />
+                      )}
                     </h4>
-                    <div className="grid grid-cols-2 gap-2">
-                      {selectedDate &&
-                        calendarDays
-                          .find(
-                            (day) =>
-                              day.date.toDateString() ===
-                              selectedDate.toDateString(),
-                          )
-                          ?.slots.map((slot) => (
-                            <button
-                              key={slot.hour}
-                              onClick={() => handleTimeSelect(slot)}
-                              disabled={!slot.available}
-                              className={cn(
-                                "p-3 text-sm rounded-lg border transition-all duration-200",
-                                "hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[hsl(var(--brand-blue))]",
-                                {
-                                  "bg-[hsl(var(--brand-blue))] text-white border-[hsl(var(--brand-blue))]":
-                                    selectedTime?.hour === slot.hour,
-                                  "bg-secondary text-foreground/90 border-border hover:bg-muted":
-                                    slot.available &&
-                                    selectedTime?.hour !== slot.hour,
-                                  "bg-secondary/60 text-muted-foreground border-border cursor-not-allowed":
-                                    !slot.available,
-                                },
-                              )}
-                            >
-                              {slot.label}
-                            </button>
-                          ))}
-                    </div>
+
+                    {error && (
+                      <div className="mb-3 p-3 bg-red-500/10 border border-red-500/20 rounded-lg text-red-400 text-sm">
+                        <p className="mb-2">{error}</p>
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() =>
+                            selectedDate && fetchAvailableSlots(selectedDate)
+                          }
+                          className="text-red-400 border-red-400 hover:bg-red-500/10"
+                        >
+                          Try Again
+                        </Button>
+                      </div>
+                    )}
+
+                    {loadingSlots ? (
+                      <div className="flex items-center justify-center py-8">
+                        <Loader2 className="w-6 h-6 animate-spin text-gray-400" />
+                        <span className="ml-2 text-gray-400">
+                          Loading available times...
+                        </span>
+                      </div>
+                    ) : availableSlots.length === 0 ? (
+                      <div className="text-center py-8 text-gray-400">
+                        <Clock className="w-8 h-8 mx-auto mb-2 opacity-50" />
+                        <p>No available time slots for this date.</p>
+                        <p className="text-sm mt-1">
+                          Please select another date.
+                        </p>
+                      </div>
+                    ) : (
+                      <div className="grid grid-cols-2 gap-2">
+                        {generateTimeSlots(availableSlots).map((slot) => (
+                          <button
+                            key={slot.hour}
+                            onClick={() => handleTimeSelect(slot)}
+                            disabled={!slot.available}
+                            className={cn(
+                              "p-3 text-sm rounded-lg border transition-all duration-200",
+                              "hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[hsl(var(--brand-blue))]",
+                              {
+                                "bg-[hsl(var(--brand-blue))] text-white border-[hsl(var(--brand-blue))]":
+                                  selectedTime?.hour === slot.hour,
+                                "bg-secondary text-foreground/90 border-border hover:bg-muted":
+                                  slot.available &&
+                                  selectedTime?.hour !== slot.hour,
+                                "bg-secondary/60 text-muted-foreground border-border cursor-not-allowed":
+                                  !slot.available,
+                              },
+                            )}
+                          >
+                            {slot.label}
+                          </button>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 )}
               </CardContent>
@@ -383,6 +508,11 @@ export default function BookDemo() {
                 </CardTitle>
               </CardHeader>
               <CardContent>
+                {error && (
+                  <div className="mb-4 p-3 bg-red-500/10 border border-red-500/20 rounded-lg text-red-400 text-sm">
+                    {error}
+                  </div>
+                )}
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
                     <Label htmlFor="name" className="text-gray-300">
@@ -485,11 +615,19 @@ export default function BookDemo() {
                       !selectedDate ||
                       !selectedTime ||
                       !formData.name ||
-                      !formData.email
+                      !formData.email ||
+                      submitting
                     }
                     className="w-full bg-gradient-to-r from-brand-blue to-slate-500 hover:from-brand-blue/90 hover:to-slate-500/90 text-white font-semibold py-3 transition-all duration-300 hover:scale-105 disabled:hover:scale-100 disabled:opacity-50"
                   >
-                    Book Demo
+                    {submitting ? (
+                      <>
+                        <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                        Booking Demo...
+                      </>
+                    ) : (
+                      "Book Demo"
+                    )}
                   </Button>
                 </form>
               </CardContent>
