@@ -265,7 +265,7 @@ export default function BookDemo() {
       }
 
       if (!response.ok || !result.success) {
-        throw new Error(result.message || "Failed to book demo");
+        throw new Error(result.message || "Failed to book consultation");
       }
 
       setIsBooked(true);
@@ -274,7 +274,7 @@ export default function BookDemo() {
       setError(
         error instanceof Error
           ? error.message
-          : "Failed to book demo. Please try again.",
+          : "Failed to book consultation. Please try again.",
       );
     } finally {
       setSubmitting(false);
@@ -295,7 +295,7 @@ export default function BookDemo() {
                 <CheckCircle className="w-8 h-8 text-white" />
               </div>
               <h1 className="text-2xl font-bold text-white mb-4">
-                Demo Booked!
+                Consultation Booked!
               </h1>
               <p className="text-muted-foreground mb-6">
                 Your demo has been successfully scheduled for{" "}
@@ -338,10 +338,10 @@ export default function BookDemo() {
               </Button>
             </Link>
             <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Book a Demo
+              Book an Consultation
             </h1>
             <p className="text-lg text-muted-foreground">
-              Schedule a personalized demo to see how SolAI can transform your
+              Schedule a personalized consultation to see how SolAI can transform your
               business workflows
             </p>
           </div>
@@ -623,10 +623,10 @@ export default function BookDemo() {
                     {submitting ? (
                       <>
                         <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                        Booking Demo...
+                        Booking Consultation...
                       </>
                     ) : (
-                      "Book Demo"
+                      "Book Consultation"
                     )}
                   </Button>
                 </form>
