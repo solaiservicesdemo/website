@@ -1,6 +1,6 @@
 import { RequestHandler } from "express";
-import { supabase } from "@shared/supabase";
-import { AvailableSlotsResponse } from "@shared/api";
+import { supabase } from "../../shared/supabase";
+import { AvailableSlotsResponse } from "../../shared/api";
 
 export const getAvailableSlots: RequestHandler = async (req, res) => {
   try {
