@@ -179,7 +179,19 @@ export default function BookDemo() {
     year: "numeric",
   });
 
+  const now = new Date();
+  const startOfThisMonth = new Date(now.getFullYear(), now.getMonth(), 1);
+  const startOfNextMonth = new Date(now.getFullYear(), now.getMonth() + 1, 1);
+  const currentMonthStart = new Date(
+    currentMonth.getFullYear(),
+    currentMonth.getMonth(),
+    1,
+  );
+  const canGoPrev = currentMonthStart > startOfThisMonth;
+  const canGoNext = currentMonthStart < startOfNextMonth;
+
   const goToPreviousMonth = () => {
+    if (!canGoPrev) return;
     setCurrentMonth(
       new Date(currentMonth.getFullYear(), currentMonth.getMonth() - 1),
     );
@@ -190,6 +202,7 @@ export default function BookDemo() {
   };
 
   const goToNextMonth = () => {
+    if (!canGoNext) return;
     setCurrentMonth(
       new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1),
     );
@@ -362,7 +375,8 @@ export default function BookDemo() {
                     variant="outline"
                     size="sm"
                     onClick={goToPreviousMonth}
-                    className="border-border text-muted-foreground hover:bg-muted"
+                    disabled={!canGoPrev}
+                    className="border-border text-muted-foreground hover:bg-muted disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     ←
                   </Button>
@@ -373,7 +387,8 @@ export default function BookDemo() {
                     variant="outline"
                     size="sm"
                     onClick={goToNextMonth}
-                    className="border-border text-muted-foreground hover:bg-muted"
+                    disabled={!canGoNext}
+                    className="border-border text-muted-foreground hover:bg-muted disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     →
                   </Button>
