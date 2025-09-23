@@ -1,7 +1,5 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Badge } from "@/components/ui/badge";
 import {
   CheckCircle,
   Mail,
@@ -15,16 +13,6 @@ import {
 import { Link } from "react-router-dom";
 
 export default function Index() {
-  const [email, setEmail] = useState("");
-  const [isSubmitted, setIsSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email) {
-      setIsSubmitted(true);
-    }
-  };
-
   return (
     <div className="min-h-screen bg-background">
       {/* Logo Section */}
@@ -66,39 +54,12 @@ export default function Index() {
 
           {/* CTA Section */}
           <div>
-            <form
-              onSubmit={handleSubmit}
-              className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto mb-8"
-            >
-              <Input
-                type="email"
-                placeholder="Enter your email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="flex-1 h-12 text-lg bg-secondary/60 border-input placeholder:text-muted-foreground"
-                required
-              />
-              <Button
-                type="submit"
-                className="h-12 px-8 bg-gradient-to-r from-brand-blue to-slate-500 hover:from-brand-blue/90 hover:to-slate-500/90 text-white font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg"
-                disabled={isSubmitted}
-              >
-                {isSubmitted ? (
-                  <>
-                    <CheckCircle className="w-5 h-5 mr-2" />
-                    Subscribed!
-                  </>
-                ) : (
-                  <>
-                    Get Notified
-                    <ArrowRight className="w-5 h-5 ml-2" />
-                  </>
-                )}
+            <Link to="/contact">
+              <Button className="h-12 px-8 bg-gradient-to-r from-brand-blue to-slate-500 hover:from-brand-blue/90 hover:to-slate-500/90 text-white font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                Contact Us
+                <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
-            </form>
-            <p className="text-sm text-gray-400">
-              Be the first to know when we launch
-            </p>
+            </Link>
           </div>
         </div>
       </div>
@@ -216,7 +177,7 @@ export default function Index() {
                 <Link to="/book-demo">
                   <Button className="bg-gradient-to-r from-brand-blue to-slate-500 hover:from-brand-blue/90 hover:to-slate-500/90 text-white font-semibold px-12 py-5 text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg h-[50px]">
                     <Calendar className="w-6 h-6 mr-3" />
-                    Book a Demo
+                    Book a consultation
                     <ArrowRight className="w-6 h-6 ml-3" />
                   </Button>
                 </Link>

@@ -179,7 +179,19 @@ export default function BookDemo() {
     year: "numeric",
   });
 
+  const now = new Date();
+  const startOfThisMonth = new Date(now.getFullYear(), now.getMonth(), 1);
+  const startOfNextMonth = new Date(now.getFullYear(), now.getMonth() + 1, 1);
+  const currentMonthStart = new Date(
+    currentMonth.getFullYear(),
+    currentMonth.getMonth(),
+    1,
+  );
+  const canGoPrev = currentMonthStart > startOfThisMonth;
+  const canGoNext = currentMonthStart < startOfNextMonth;
+
   const goToPreviousMonth = () => {
+    if (!canGoPrev) return;
     setCurrentMonth(
       new Date(currentMonth.getFullYear(), currentMonth.getMonth() - 1),
     );
@@ -190,6 +202,7 @@ export default function BookDemo() {
   };
 
   const goToNextMonth = () => {
+    if (!canGoNext) return;
     setCurrentMonth(
       new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1),
     );
@@ -265,16 +278,16 @@ export default function BookDemo() {
       }
 
       if (!response.ok || !result.success) {
-        throw new Error(result.message || "Failed to book demo");
+        throw new Error(result.message || "Failed to book consultation");
       }
 
       setIsBooked(true);
     } catch (error) {
-      console.error("Error booking demo:", error);
+      console.error("Error booking consultation:", error);
       setError(
         error instanceof Error
           ? error.message
-          : "Failed to book demo. Please try again.",
+          : "Failed to book consultation. Please try again.",
       );
     } finally {
       setSubmitting(false);
@@ -295,10 +308,10 @@ export default function BookDemo() {
                 <CheckCircle className="w-8 h-8 text-white" />
               </div>
               <h1 className="text-2xl font-bold text-white mb-4">
-                Demo Booked!
+                Consultation Booked!
               </h1>
               <p className="text-muted-foreground mb-6">
-                Your demo has been successfully scheduled for{" "}
+                Your consultation has been successfully scheduled for{" "}
                 <span className="text-[hsl(var(--brand-blue))] font-semibold">
                   {selectedDate?.toLocaleDateString("en-US", {
                     weekday: "long",
@@ -338,11 +351,11 @@ export default function BookDemo() {
               </Button>
             </Link>
             <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Book a Demo
+              Book a consultation
             </h1>
             <p className="text-lg text-muted-foreground">
-              Schedule a personalized demo to see how SolAI can transform your
-              business workflows
+              Schedule a personalized consultation to see how SolAI can
+              transform your business workflows
             </p>
           </div>
 
@@ -362,7 +375,8 @@ export default function BookDemo() {
                     variant="outline"
                     size="sm"
                     onClick={goToPreviousMonth}
-                    className="border-border text-muted-foreground hover:bg-muted"
+                    disabled={!canGoPrev}
+                    className="border-border text-muted-foreground hover:bg-muted disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     ←
                   </Button>
@@ -373,7 +387,8 @@ export default function BookDemo() {
                     variant="outline"
                     size="sm"
                     onClick={goToNextMonth}
-                    className="border-border text-muted-foreground hover:bg-muted"
+                    disabled={!canGoNext}
+                    className="border-border text-muted-foreground hover:bg-muted disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     →
                   </Button>
@@ -623,10 +638,10 @@ export default function BookDemo() {
                     {submitting ? (
                       <>
                         <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                        Booking Demo...
+                        Booking Consultation...
                       </>
                     ) : (
-                      "Book Demo"
+                      "Book Consultation"
                     )}
                   </Button>
                 </form>
