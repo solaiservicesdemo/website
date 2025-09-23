@@ -57,7 +57,7 @@ export default function Index() {
           <div>
             <Link to="/contact">
               <Button className="h-12 px-8 bg-gradient-to-r from-brand-blue to-slate-500 hover:from-brand-blue/90 hover:to-slate-500/90 text-white font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg">
-                Contact Me
+                Contact Us
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </Link>
