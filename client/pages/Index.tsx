@@ -178,7 +178,7 @@ export default function Index() {
                 <Link to="/book-demo">
                   <Button className="bg-gradient-to-r from-brand-blue to-slate-500 hover:from-brand-blue/90 hover:to-slate-500/90 text-white font-semibold px-12 py-5 text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg h-[50px]">
                     <Calendar className="w-6 h-6 mr-3" />
-                    Book an Consultation
+                    Book a consultation
                     <ArrowRight className="w-6 h-6 ml-3" />
                   </Button>
                 </Link>
