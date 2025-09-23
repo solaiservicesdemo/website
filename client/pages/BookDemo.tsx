@@ -283,7 +283,7 @@ export default function BookDemo() {
 
       setIsBooked(true);
     } catch (error) {
-      console.error("Error booking demo:", error);
+      console.error("Error booking consultation:", error);
       setError(
         error instanceof Error
           ? error.message
@@ -311,7 +311,7 @@ export default function BookDemo() {
                 Consultation Booked!
               </h1>
               <p className="text-muted-foreground mb-6">
-                Your demo has been successfully scheduled for{" "}
+                Your consultation has been successfully scheduled for{" "}
                 <span className="text-[hsl(var(--brand-blue))] font-semibold">
                   {selectedDate?.toLocaleDateString("en-US", {
                     weekday: "long",
@@ -351,7 +351,7 @@ export default function BookDemo() {
               </Button>
             </Link>
             <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Book an Consultation
+              Book a consultation
             </h1>
             <p className="text-lg text-muted-foreground">
               Schedule a personalized consultation to see how SolAI can transform your
