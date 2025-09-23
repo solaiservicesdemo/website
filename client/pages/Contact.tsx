@@ -79,7 +79,7 @@ export default function Contact() {
 
         <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">Contact Us</h1>
         <p className="text-lg text-muted-foreground mb-8">
-          Have a question or want to learn more? Send us a message and well get back to you by email.
+          Have a question or want to learn more? Send us a message and we'll get back to you by email.
         </p>
 
         <Card className="bg-secondary border-border">
