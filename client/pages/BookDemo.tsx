@@ -354,8 +354,8 @@ export default function BookDemo() {
               Book a consultation
             </h1>
             <p className="text-lg text-muted-foreground">
-              Schedule a personalized consultation to see how SolAI can transform your
-              business workflows
+              Schedule a personalized consultation to see how SolAI can
+              transform your business workflows
             </p>
           </div>
 

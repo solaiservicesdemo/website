@@ -13,7 +13,6 @@ import {
 import { Link } from "react-router-dom";
 
 export default function Index() {
-
   return (
     <div className="min-h-screen bg-background">
       {/* Logo Section */}

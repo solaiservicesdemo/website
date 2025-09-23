@@ -8,7 +8,11 @@ import { Textarea } from "@/components/ui/textarea";
 import { ArrowLeft, Mail, User, MessageSquare } from "lucide-react";
 
 export default function Contact() {
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
@@ -42,12 +46,14 @@ export default function Contact() {
         <div className="max-w-md w-full text-center">
           <Card className="bg-secondary border-border">
             <CardHeader>
-              <CardTitle className="text-white">Thanks for reaching out!</CardTitle>
+              <CardTitle className="text-white">
+                Thanks for reaching out!
+              </CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground mb-6">
-                Your email app should have opened with your message. If not, you can email us at
-                {" "}
+                Your email app should have opened with your message. If not, you
+                can email us at{" "}
                 <a
                   href="mailto:jtgeldart@solai-systems.com"
                   className="text-[hsl(var(--brand-blue))] hover:underline"
@@ -77,9 +83,12 @@ export default function Contact() {
           </Button>
         </Link>
 
-        <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">Contact Us</h1>
+        <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          Contact Us
+        </h1>
         <p className="text-lg text-muted-foreground mb-8">
-          Have a question or want to learn more? Send us a message and we'll get back to you by email.
+          Have a question or want to learn more? Send us a message and we'll get
+          back to you by email.
         </p>
 
         <Card className="bg-secondary border-border">
@@ -91,7 +100,10 @@ export default function Contact() {
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <Label htmlFor="name" className="text-gray-300 flex items-center gap-2">
+                <Label
+                  htmlFor="name"
+                  className="text-gray-300 flex items-center gap-2"
+                >
                   <User className="w-4 h-4" /> Full Name *
                 </Label>
                 <Input
@@ -105,7 +117,10 @@ export default function Contact() {
               </div>
 
               <div>
-                <Label htmlFor="email" className="text-gray-300 flex items-center gap-2">
+                <Label
+                  htmlFor="email"
+                  className="text-gray-300 flex items-center gap-2"
+                >
                   <Mail className="w-4 h-4" /> Email Address *
                 </Label>
                 <Input
@@ -119,7 +134,10 @@ export default function Contact() {
               </div>
 
               <div>
-                <Label htmlFor="message" className="text-gray-300 flex items-center gap-2">
+                <Label
+                  htmlFor="message"
+                  className="text-gray-300 flex items-center gap-2"
+                >
                   <MessageSquare className="w-4 h-4" /> Message (Optional)
                 </Label>
                 <Textarea
